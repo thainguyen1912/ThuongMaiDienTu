@@ -32,6 +32,7 @@ public class Category extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
+        
         List<entity.Category> list_cat=category_s.getAll();
         request.setAttribute("list_category", list_cat);
         request.setAttribute("title", "list_category");

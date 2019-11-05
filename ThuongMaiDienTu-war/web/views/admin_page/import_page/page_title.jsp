@@ -3,17 +3,17 @@
     String title="";
     String value=request.getAttribute("title").toString();
     switch(value){
-        case "parentage_info":
-           title ="Thông Tin Dòng Họ";
+        case "list_category":
+           title ="Danh Sách Danh Mục";
             break;
-        case "parentage_treeview":
-            title ="Quản Lý Phả Đồ";
+        case "list_product":
+            title ="Danh Sách Sản Phẩm";
             break;
-        case "edit_individual":
-            title="Sửa Thông Tin Thành Viên";
+        case "list_staff":
+            title="Danh Sách Nhân Viên";
             break;
-        case "add_individual":
-            title="Thêm Thành Viên";
+        case "list_customer":
+            title="Danh Sách Người Dùng";
             break;
         case "list_individual":
             title="Danh Sách Thành Viên";

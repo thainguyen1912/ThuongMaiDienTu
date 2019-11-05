@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 
 public class DBConnection {
-    Connection connect = null;
+    public static Connection connect = null;
 
     public Connection getConnect() {
         return connect;

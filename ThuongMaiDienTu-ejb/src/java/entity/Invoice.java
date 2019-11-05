@@ -7,7 +7,6 @@ package entity;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,8 +18,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -33,7 +30,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Invoice.findAll", query = "SELECT i FROM Invoice i")
     , @NamedQuery(name = "Invoice.findByIdinvoice", query = "SELECT i FROM Invoice i WHERE i.idinvoice = :idinvoice")
-    , @NamedQuery(name = "Invoice.findByDatesale", query = "SELECT i FROM Invoice i WHERE i.datesale = :datesale")
     , @NamedQuery(name = "Invoice.findByTotalmoney", query = "SELECT i FROM Invoice i WHERE i.totalmoney = :totalmoney")})
 public class Invoice implements Serializable {
 
@@ -43,9 +39,6 @@ public class Invoice implements Serializable {
     @Basic(optional = false)
     @Column(name = "idinvoice")
     private Integer idinvoice;
-    @Column(name = "datesale")
-    @Temporal(TemporalType.DATE)
-    private Date datesale;
     @Column(name = "totalmoney")
     private BigInteger totalmoney;
     @JoinColumn(name = "idcustomer", referencedColumnName = "idcustomer")
@@ -68,14 +61,6 @@ public class Invoice implements Serializable {
 
     public void setIdinvoice(Integer idinvoice) {
         this.idinvoice = idinvoice;
-    }
-
-    public Date getDatesale() {
-        return datesale;
-    }
-
-    public void setDatesale(Date datesale) {
-        this.datesale = datesale;
     }
 
     public BigInteger getTotalmoney() {

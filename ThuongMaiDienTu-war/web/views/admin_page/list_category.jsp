@@ -2,7 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    List<Category> list_cat=(List<Category>)request.getAttribute("list_category");
+    List<Category> list_cat = (List<Category>) request.getAttribute("list_category");
     System.out.println(list_cat.toString());
 %>
 <!doctype html>
@@ -26,6 +26,7 @@
                                                 <tr>
                                                     <th>STT</th>
                                                     <th>Tên Danh Mục</th>
+                                                    <th style="width: 18%">Tùy Chọn</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -35,32 +36,24 @@
                                                 %>
                                                 <tr>
                                                     <th><%=i + 1%></th>
-                                                    <td><%=list_cat.get(i).getCategoryname() %></td>
+                                                    <td><%=list_cat.get(i).getCategoryname()%></td>
                                                     <td>
-                                                        <div class="dropdown d-inline-block">
-                                                            <button type=button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-info"></button>
-                                                            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                                                                <a href="">
-                                                                    <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-warning">
-                                                                        <i class="pe-7s-tools" style="font-size: 1.2rem">
-                                                                            <span style="font-size:16px">   Sửa</span>
-                                                                        </i>
-                                                                    </button>
-                                                                </a>
-                                                                <a onclick="return xacNhan()" href="">
-                                                                    <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-danger"><i class="pe-7s-trash" style="font-size: 1.2rem">
-                                                                            <span style="font-size:16px">   Xóa</span>
-                                                                        </i>
-                                                                    </button>
-                                                                </a>
-                                                                <a>
-                                                                    <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-info">
-                                                                        <i class="pe-7s-add-user" style="font-size: 1.2rem">
-                                                                            <span style="font-size:16px">   Thêm Con</span>
-                                                                        </i>
-                                                                    </button>
-                                                                </a>
-                                                            </div>
+                                                        <div style="float: left">
+                                                            <a href="">
+                                                                <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-warning">
+                                                                    <i class="pe-7s-tools" style="font-size: 1.2rem">
+                                                                    </i>
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                        <div style="float: left">
+                                                            <a onclick="return xacNhan()" href="">
+                                                                <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-danger">
+                                                                    <i class="pe-7s-trash" style="font-size: 1.2rem">
+                                                                    </i>
+                                                                </button>
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <%

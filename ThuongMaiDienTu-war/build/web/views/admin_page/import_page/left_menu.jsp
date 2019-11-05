@@ -44,27 +44,27 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dòng họ</li>
                 <li>
-                    <a href="ParentageInfo?title=parentage_info" class="<%=title.equals("list_category")?"mm-active":"" %>">
+                    <a href="AdminPage?key=category" class="<%=title.equals("list_category")?"mm-active":"" %>">
                         <i class="metismenu-icon pe-7s-notebook"></i>
-                        Thông tin dòng họ
+                        Danh Mục 
                     </a>
                 </li>
                 <li>
-                    <a href="ParentageViewTree?title=parentage_treeview" class="<%=title.equals("parentage_treeview")?"mm-active":"" %>"> 
+                    <a href="AdminPage?key=product" class="<%=title.equals("list_product")?"mm-active":"" %>"> 
                         <i class="metismenu-icon pe-7s-network"></i>
-                        Quản lý phả đồ
+                        Sản Phẩm
                     </a>
                 </li>
                 <li>
-                    <a href="ListIndividual?title=list_individual" class="<%=title.equals("list_individual")?"mm-active":"" %>">
+                    <a href="AdminPage?key=staff" class="<%=title.equals("list_staff")?"mm-active":"" %>">
                         <i class="metismenu-icon pe-7s-album"></i>
-                        Danh Sách Thành Viên
+                        Nhân Viên
                     </a>
                 </li>
                 <li>
-                    <a href="ListAvatar" class="<%=title.equals("list_avatar")?"mm-active":"" %>">
+                    <a href="AdminPage?key=customer" class="<%=title.equals("list_customer")?"mm-active":"" %>">
                         <i class="metismenu-icon pe-7s-album"></i>
-                        Album Ảnh
+                        Khách Hàng
                     </a>
                 </li>
 

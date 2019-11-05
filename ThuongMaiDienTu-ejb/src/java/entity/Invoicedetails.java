@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -15,6 +16,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -28,20 +32,36 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Invoicedetails.findAll", query = "SELECT i FROM Invoicedetails i")
     , @NamedQuery(name = "Invoicedetails.findByIdinvoice", query = "SELECT i FROM Invoicedetails i WHERE i.invoicedetailsPK.idinvoice = :idinvoice")
     , @NamedQuery(name = "Invoicedetails.findByIdproduct", query = "SELECT i FROM Invoicedetails i WHERE i.invoicedetailsPK.idproduct = :idproduct")
+    , @NamedQuery(name = "Invoicedetails.findByDatecreate", query = "SELECT i FROM Invoicedetails i WHERE i.datecreate = :datecreate")
+    , @NamedQuery(name = "Invoicedetails.findByDatepay", query = "SELECT i FROM Invoicedetails i WHERE i.datepay = :datepay")
     , @NamedQuery(name = "Invoicedetails.findByAmount", query = "SELECT i FROM Invoicedetails i WHERE i.amount = :amount")
+    , @NamedQuery(name = "Invoicedetails.findByStyle", query = "SELECT i FROM Invoicedetails i WHERE i.style = :style")
     , @NamedQuery(name = "Invoicedetails.findByDiscount", query = "SELECT i FROM Invoicedetails i WHERE i.discount = :discount")
-    , @NamedQuery(name = "Invoicedetails.findByRealprice", query = "SELECT i FROM Invoicedetails i WHERE i.realprice = :realprice")})
+    , @NamedQuery(name = "Invoicedetails.findByRealprice", query = "SELECT i FROM Invoicedetails i WHERE i.realprice = :realprice")
+    , @NamedQuery(name = "Invoicedetails.findByMoreinfo", query = "SELECT i FROM Invoicedetails i WHERE i.moreinfo = :moreinfo")})
 public class Invoicedetails implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected InvoicedetailsPK invoicedetailsPK;
+    @Column(name = "datecreate")
+    @Temporal(TemporalType.DATE)
+    private Date datecreate;
+    @Column(name = "datepay")
+    @Temporal(TemporalType.DATE)
+    private Date datepay;
     @Column(name = "amount")
     private Integer amount;
+    @Size(max = 45)
+    @Column(name = "style")
+    private String style;
     @Column(name = "discount")
     private Integer discount;
     @Column(name = "realprice")
     private BigInteger realprice;
+    @Size(max = 45)
+    @Column(name = "moreinfo")
+    private String moreinfo;
     @JoinColumn(name = "idproduct", referencedColumnName = "idproduct", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Product product;
@@ -65,12 +85,36 @@ public class Invoicedetails implements Serializable {
         this.invoicedetailsPK = invoicedetailsPK;
     }
 
+    public Date getDatecreate() {
+        return datecreate;
+    }
+
+    public void setDatecreate(Date datecreate) {
+        this.datecreate = datecreate;
+    }
+
+    public Date getDatepay() {
+        return datepay;
+    }
+
+    public void setDatepay(Date datepay) {
+        this.datepay = datepay;
+    }
+
     public Integer getAmount() {
         return amount;
     }
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
     }
 
     public Integer getDiscount() {
@@ -87,6 +131,14 @@ public class Invoicedetails implements Serializable {
 
     public void setRealprice(BigInteger realprice) {
         this.realprice = realprice;
+    }
+
+    public String getMoreinfo() {
+        return moreinfo;
+    }
+
+    public void setMoreinfo(String moreinfo) {
+        this.moreinfo = moreinfo;
     }
 
     public Product getProduct() {

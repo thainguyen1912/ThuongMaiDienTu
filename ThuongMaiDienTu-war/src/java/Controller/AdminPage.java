@@ -33,6 +33,15 @@ public class AdminPage extends HttpServlet {
             case "category":
                 response.sendRedirect("Category");
                 break;
+            case "product":
+                response.sendRedirect("Product");
+                break;
+            case "staff":
+                response.sendRedirect("Staff");
+                break;
+            case "customer":
+                response.sendRedirect("Customer");
+                break;
         }
     }
 

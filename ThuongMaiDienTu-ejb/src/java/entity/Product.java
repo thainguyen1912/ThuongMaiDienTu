@@ -43,27 +43,28 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Product.findByMoreinfo", query = "SELECT p FROM Product p WHERE p.moreinfo = :moreinfo")})
 public class Product implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "idproduct")
-    private Integer idproduct;
     @Size(max = 45)
     @Column(name = "productname")
     private String productname;
-    @Column(name = "amount")
-    private Integer amount;
-    @Column(name = "priceinput")
-    private BigInteger priceinput;
-    @Column(name = "priceoutput")
-    private BigInteger priceoutput;
     @Size(max = 45)
     @Column(name = "productimage")
     private String productimage;
     @Size(max = 100)
     @Column(name = "moreinfo")
     private String moreinfo;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "idproduct")
+    private Integer idproduct;
+    @Column(name = "amount")
+    private Integer amount;
+    @Column(name = "priceinput")
+    private BigInteger priceinput;
+    @Column(name = "priceoutput")
+    private BigInteger priceoutput;
     @JoinColumn(name = "idcategory", referencedColumnName = "idcategory")
     @ManyToOne(optional = false)
     private Category idcategory;
@@ -73,6 +74,17 @@ public class Product implements Serializable {
     public Product() {
     }
 
+    public Product(Integer idproduct, String productname, Integer amount, BigInteger priceinput, BigInteger priceoutput, String productimage, String moreinfo, Category idcategory) {
+        this.idproduct = idproduct;
+        this.productname = productname;
+        this.amount = amount;
+        this.priceinput = priceinput;
+        this.priceoutput = priceoutput;
+        this.productimage = productimage;
+        this.moreinfo = moreinfo;
+        this.idcategory = idcategory;
+    }
+    
     public Product(Integer idproduct) {
         this.idproduct = idproduct;
     }
@@ -85,13 +97,6 @@ public class Product implements Serializable {
         this.idproduct = idproduct;
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname;
-    }
 
     public Integer getAmount() {
         return amount;
@@ -117,21 +122,6 @@ public class Product implements Serializable {
         this.priceoutput = priceoutput;
     }
 
-    public String getProductimage() {
-        return productimage;
-    }
-
-    public void setProductimage(String productimage) {
-        this.productimage = productimage;
-    }
-
-    public String getMoreinfo() {
-        return moreinfo;
-    }
-
-    public void setMoreinfo(String moreinfo) {
-        this.moreinfo = moreinfo;
-    }
 
     public Category getIdcategory() {
         return idcategory;
@@ -173,6 +163,30 @@ public class Product implements Serializable {
     @Override
     public String toString() {
         return "entity.Product[ idproduct=" + idproduct + " ]";
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname;
+    }
+
+    public String getProductimage() {
+        return productimage;
+    }
+
+    public void setProductimage(String productimage) {
+        this.productimage = productimage;
+    }
+
+    public String getMoreinfo() {
+        return moreinfo;
+    }
+
+    public void setMoreinfo(String moreinfo) {
+        this.moreinfo = moreinfo;
     }
     
 }

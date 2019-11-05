@@ -37,4 +37,21 @@ public class Category_s{
         }
         return list_cat;
     }
+    public Category selectCategoryByID(int idCate){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        Category cat=null;
+        String sql="select * from tmdt.category where idcategory='"+idCate+"'";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int id=rs.getInt("idcategory");
+                String name=rs.getString("categoryname");
+                cat=new Category(id, name);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Category_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cat;
+    }
 }

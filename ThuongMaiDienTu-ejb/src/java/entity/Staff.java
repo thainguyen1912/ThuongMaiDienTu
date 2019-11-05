@@ -42,30 +42,41 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Staff.findByPhonenumber", query = "SELECT s FROM Staff s WHERE s.phonenumber = :phonenumber")})
 public class Staff implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "idstaff")
-    private Integer idstaff;
     @Size(max = 45)
     @Column(name = "staffname")
     private String staffname;
+    @Size(max = 4)
     @Column(name = "gender")
-    private Boolean gender;
-    @Column(name = "datebirth")
-    @Temporal(TemporalType.DATE)
-    private Date datebirth;
+    private String gender;
     @Size(max = 45)
     @Column(name = "address")
     private String address;
     @Size(max = 15)
     @Column(name = "phonenumber")
     private String phonenumber;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "idstaff")
+    private Integer idstaff;
+    @Column(name = "datebirth")
+    @Temporal(TemporalType.DATE)
+    private Date datebirth;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idstaff")
     private List<Invoice> invoiceList;
 
     public Staff() {
+    }
+
+    public Staff(Integer idstaff, String staffname, String gender, Date datebirth, String address, String phonenumber) {
+        this.idstaff = idstaff;
+        this.staffname = staffname;
+        this.gender = gender;
+        this.datebirth = datebirth;
+        this.address = address;
+        this.phonenumber = phonenumber;
     }
 
     public Staff(Integer idstaff) {
@@ -80,21 +91,6 @@ public class Staff implements Serializable {
         this.idstaff = idstaff;
     }
 
-    public String getStaffname() {
-        return staffname;
-    }
-
-    public void setStaffname(String staffname) {
-        this.staffname = staffname;
-    }
-
-    public Boolean getGender() {
-        return gender;
-    }
-
-    public void setGender(Boolean gender) {
-        this.gender = gender;
-    }
 
     public Date getDatebirth() {
         return datebirth;
@@ -104,21 +100,6 @@ public class Staff implements Serializable {
         this.datebirth = datebirth;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
 
     @XmlTransient
     public List<Invoice> getInvoiceList() {
@@ -152,6 +133,38 @@ public class Staff implements Serializable {
     @Override
     public String toString() {
         return "entity.Staff[ idstaff=" + idstaff + " ]";
+    }
+
+    public String getStaffname() {
+        return staffname;
+    }
+
+    public void setStaffname(String staffname) {
+        this.staffname = staffname;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
     
 }
