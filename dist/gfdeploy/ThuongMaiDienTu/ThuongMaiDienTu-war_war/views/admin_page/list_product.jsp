@@ -28,6 +28,7 @@
                                                     <th>Tên Sản Phẩm</th>
                                                     <th>Thuộc Danh Mục</th>
                                                     <th>Số Lượng Hiện Tại</th>
+                                                    <th>Số Lượng Đã Bán</th>
                                                     <th>Giá Nhập Vào</th>
                                                     <th>Giá Bán Ra</th>
                                                     <th>Hình Ảnh</th>
@@ -44,7 +45,8 @@
                                                     <th><%=i + 1%></th>
                                                     <td><%=list_pro.get(i).getProductname() %></td>
                                                     <td><%=list_pro.get(i).getIdcategory().getCategoryname() %></td>
-                                                    <td><%=list_pro.get(i).getAmount()%></td>
+                                                    <td><%=list_pro.get(i).getAmountnow()%></td>
+                                                    <td><%=list_pro.get(i).getAmountpaid()%></td>
                                                     <td><%=list_pro.get(i).getPriceinput()%></td>
                                                     <td><%=list_pro.get(i).getPriceoutput()%></td>
                                                     <td><%=list_pro.get(i).getProductimage()%></td>

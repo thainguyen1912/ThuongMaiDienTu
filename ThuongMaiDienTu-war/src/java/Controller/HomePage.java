@@ -6,44 +6,46 @@
 package Controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import session.Category_s;
+import session.Product_s;
 
-/**
- *
- * @author thain
- */
+
 @WebServlet(name = "HomePage", urlPatterns = {"/HomePage"})
 public class HomePage extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    @EJB
+    private Product_s product_s;
+
+    @EJB
+    private Category_s category_s;
+
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet HomePage</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet HomePage at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        request.setCharacterEncoding("utf-8");
+        
+        List<entity.Category> list_cat=category_s.getAll();
+        List<entity.Product> list_pro=new ArrayList<>();
+        for(int i=0;i<list_cat.size();i++){
+            List<entity.Product> ls=product_s.selectTopByIdCat(list_cat.get(i).getIdcategory(), 3);
+            list_pro.addAll(ls);
         }
+        List<entity.Product> list_pro_pop=product_s.selectTop(20);
+        request.setAttribute("list_category", list_cat);
+        request.setAttribute("list_product", list_pro);
+        request.setAttribute("list_product_popular", list_pro_pop);
+        RequestDispatcher rd=request.getRequestDispatcher("views/home_page/index.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

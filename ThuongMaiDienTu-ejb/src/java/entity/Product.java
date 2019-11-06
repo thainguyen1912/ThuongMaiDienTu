@@ -36,7 +36,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")
     , @NamedQuery(name = "Product.findByIdproduct", query = "SELECT p FROM Product p WHERE p.idproduct = :idproduct")
     , @NamedQuery(name = "Product.findByProductname", query = "SELECT p FROM Product p WHERE p.productname = :productname")
-    , @NamedQuery(name = "Product.findByAmount", query = "SELECT p FROM Product p WHERE p.amount = :amount")
+    , @NamedQuery(name = "Product.findByAmountnow", query = "SELECT p FROM Product p WHERE p.amountnow = :amountnow")
+    , @NamedQuery(name = "Product.findByAmountpaid", query = "SELECT p FROM Product p WHERE p.amountpaid = :amountpaid")
     , @NamedQuery(name = "Product.findByPriceinput", query = "SELECT p FROM Product p WHERE p.priceinput = :priceinput")
     , @NamedQuery(name = "Product.findByPriceoutput", query = "SELECT p FROM Product p WHERE p.priceoutput = :priceoutput")
     , @NamedQuery(name = "Product.findByProductimage", query = "SELECT p FROM Product p WHERE p.productimage = :productimage")
@@ -52,6 +53,8 @@ public class Product implements Serializable {
     @Size(max = 100)
     @Column(name = "moreinfo")
     private String moreinfo;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    private List<Invoicedetails> invoicedetailsList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -59,8 +62,10 @@ public class Product implements Serializable {
     @Basic(optional = false)
     @Column(name = "idproduct")
     private Integer idproduct;
-    @Column(name = "amount")
-    private Integer amount;
+    @Column(name = "amountnow")
+    private Integer amountnow;
+    @Column(name = "amountpaid")
+    private Integer amountpaid;
     @Column(name = "priceinput")
     private BigInteger priceinput;
     @Column(name = "priceoutput")
@@ -68,23 +73,22 @@ public class Product implements Serializable {
     @JoinColumn(name = "idcategory", referencedColumnName = "idcategory")
     @ManyToOne(optional = false)
     private Category idcategory;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private List<Invoicedetails> invoicedetailsList;
 
     public Product() {
     }
 
-    public Product(Integer idproduct, String productname, Integer amount, BigInteger priceinput, BigInteger priceoutput, String productimage, String moreinfo, Category idcategory) {
+    public Product(Integer idproduct, String productname, Integer amountnow, Integer amountpaid, BigInteger priceinput, BigInteger priceoutput, String productimage, String moreinfo, Category idcategory) {
         this.idproduct = idproduct;
         this.productname = productname;
-        this.amount = amount;
+        this.amountnow = amountnow;
+        this.amountpaid = amountpaid;
         this.priceinput = priceinput;
         this.priceoutput = priceoutput;
         this.productimage = productimage;
         this.moreinfo = moreinfo;
         this.idcategory = idcategory;
     }
-    
+
     public Product(Integer idproduct) {
         this.idproduct = idproduct;
     }
@@ -98,12 +102,20 @@ public class Product implements Serializable {
     }
 
 
-    public Integer getAmount() {
-        return amount;
+    public Integer getAmountnow() {
+        return amountnow;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setAmountnow(Integer amountnow) {
+        this.amountnow = amountnow;
+    }
+
+    public Integer getAmountpaid() {
+        return amountpaid;
+    }
+
+    public void setAmountpaid(Integer amountpaid) {
+        this.amountpaid = amountpaid;
     }
 
     public BigInteger getPriceinput() {
@@ -129,15 +141,6 @@ public class Product implements Serializable {
 
     public void setIdcategory(Category idcategory) {
         this.idcategory = idcategory;
-    }
-
-    @XmlTransient
-    public List<Invoicedetails> getInvoicedetailsList() {
-        return invoicedetailsList;
-    }
-
-    public void setInvoicedetailsList(List<Invoicedetails> invoicedetailsList) {
-        this.invoicedetailsList = invoicedetailsList;
     }
 
     @Override
@@ -187,6 +190,15 @@ public class Product implements Serializable {
 
     public void setMoreinfo(String moreinfo) {
         this.moreinfo = moreinfo;
+    }
+
+    @XmlTransient
+    public List<Invoicedetails> getInvoicedetailsList() {
+        return invoicedetailsList;
+    }
+
+    public void setInvoicedetailsList(List<Invoicedetails> invoicedetailsList) {
+        this.invoicedetailsList = invoicedetailsList;
     }
     
 }

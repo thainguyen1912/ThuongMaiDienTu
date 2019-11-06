@@ -33,6 +33,7 @@
                                                     <th>Địa Chỉ</th>
                                                     <th>Số Điện Thoại</th>
                                                     <th>Tên Tài Khoản</th>
+                                                    <th>Địa Chỉ Nhận</th>
                                                     <th>Mật Khẩu</th>
                                                     <th style="width: 18%">Tùy Chọn</th>
                                                 </tr>
@@ -49,6 +50,7 @@
                                                     <td><%=list_cus.get(i).getDatebirth()%></td>
                                                     <td><%=list_cus.get(i).getAddress()%></td>
                                                     <td><%=list_cus.get(i).getPhonenumber()%></td>
+                                                    <td><%=list_cus.get(i).getTransport()%></td>
                                                     <td><%=list_cus.get(i).getUsername()%></td>
                                                     <td><%=list_cus.get(i).getPassword()%></td>
                                                     <td>

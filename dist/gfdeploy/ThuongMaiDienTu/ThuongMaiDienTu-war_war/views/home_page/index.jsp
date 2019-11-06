@@ -1,3 +1,13 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="entity.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="entity.Category"%>
+<%
+    List<Category> list_cat = (List<Category>) request.getAttribute("list_category");
+    List<Product> list_pro = (List<Product>) request.getAttribute("list_product");
+    List<Product> list_pro_pop = (List<Product>) request.getAttribute("list_product_popular");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,93 +19,11 @@
         <jsp:include page="home_resources/import_css.jsp" flush="true" />
     </head>
     <body>
-
-        <!-- Menu -->
-
         <div class="menu">
-
-            <!-- Search -->
-            <div class="menu_search">
-                <form action="#" id="menu_search_form" class="menu_search_form">
-                    <input type="text" class="search_input" placeholder="Search Item" required="required">
-                    <button class="menu_search_button"><img src="resources/home_page/images/search.png" alt=""></button>
-                </form>
-            </div>
-            <!-- Navigation -->
-            <div class="menu_nav">
-                <ul>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">Home Deco</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <!-- Contact Info -->
-            <div class="menu_contact">
-                <div class="menu_phone d-flex flex-row align-items-center justify-content-start">
-                    <div><div><img src="resources/home_page/images/phone.svg" alt="https://www.flaticon.com/authors/freepik"></div></div>
-                    <div>+1 912-252-7350</div>
-                </div>
-                <div class="menu_social">
-                    <ul class="menu_social_list d-flex flex-row align-items-start justify-content-start">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+            <jsp:include page="home_resources/menuhide.jsp" flush="true" />
         </div>
-
         <div class="super_container">
-
-            <!-- Header -->
-
-            <header class="header">
-                <div class="header_overlay"></div>
-                <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                    <div class="logo">
-                        <a href="#">
-                            <div class="d-flex flex-row align-items-center justify-content-start">
-                                <div><img src="resources/home_page/images/logo_1.png" alt=""></div>
-                                <div>Little Closet</div>
-                            </div>
-                        </a>	
-                    </div>
-                    <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
-                    <nav class="main_nav">
-                        <ul class="d-flex flex-row align-items-start justify-content-start">
-                            <li class="active"><a href="#">Women</a></li>
-                            <li><a href="#">Men</a></li>
-                            <li><a href="#">Kids</a></li>
-                            <li><a href="#">Home Deco</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
-                    <div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
-                        <!-- Search -->
-                        <div class="header_search">
-                            <form action="#" id="header_search_form">
-                                <input type="text" class="search_input" placeholder="Search Item" required="required">
-                                <button class="header_search_button"><img src="resources/home_page/images/search.png" alt=""></button>
-                            </form>
-                        </div>
-                        <!-- Login -->
-                        <div class="user"><a href="AdminPage?key=category"><div><img src="resources/home_page/images/login.svg" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
-                        <!-- User -->
-                        <div class="user"><a href="#"><div><img src="resources/home_page/images/user.svg" alt="https://www.flaticon.com/authors/freepik"><div>1</div></div></a></div>
-                        <!-- Cart -->
-                        <div class="cart"><a href="cart.html"><div><img class="svg" src="resources/home_page/images/cart.svg" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
-                        <!-- Phone -->
-                        <div class="header_phone d-flex flex-row align-items-center justify-content-start">
-                            <div><div><img src="resources/home_page/images/phone.svg" alt="https://www.flaticon.com/authors/freepik"></div></div>
-                            <div>+1 912-252-7350</div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
+            <jsp:include page="home_resources/header.jsp" flush="true" />
             <div class="super_container_inner">
                 <div class="super_overlay"></div>
 
@@ -106,68 +34,11 @@
                     <div class="home_slider_container">
                         <div class="owl-carousel owl-theme home_slider">
 
-                            <!-- Slide -->
-                            <div class="owl-item">
-                                <div class="background_image" style="background-image:url(resources/home_page/images/home.jpg)"></div>
-                                <div class="container fill_height">
-                                    <div class="row fill_height">
-                                        <div class="col fill_height">
-                                            <div class="home_container d-flex flex-column align-items-center justify-content-start">
-                                                <div class="home_content">
-                                                    <div class="home_title">New Arrivals</div>
-                                                    <div class="home_subtitle">Summer Wear</div>
-                                                    <div class="home_items">
-                                                        <div class="row">
-                                                            <div class="col-sm-3 offset-lg-1">
-                                                                <div class="home_item_side"><a href="product.html"><img src="https://brain-images-ssl.cdn.dixons.com/4/5/10189554/l_10189554_003.jpg" alt=""></a></div>
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
-                                                                <div class="product home_item_large">
-                                                                    <div class="product_tag d-flex flex-column align-items-center justify-content-center">
-                                                                        <div>
-                                                                            <div>from</div>
-                                                                            <div>$3<span>.99</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product_image"><img src="https://brain-images-ssl.cdn.dixons.com/4/5/10189554/l_10189554_003.jpg" alt=""></div>
-                                                                    <div class="product_content">
-                                                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                                                            <div>
-                                                                                <div>
-                                                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-                                                                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="ml-auto text-right">
-                                                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product_buttons">
-                                                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                                                    <div><div><img src="resources/home_page/images/heart.svg" alt=""><div>+</div></div></div>
-                                                                                </div>
-                                                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                                                    <div><div><img src="resources/home_page/images/cart_2.svg" alt=""><div>+</div></div></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3">
-                                                                <div class="home_item_side"><a href="product.html"><img src="https://brain-images-ssl.cdn.dixons.com/4/5/10189554/l_10189554_003.jpg" alt=""></a></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>	
-                            </div>
+                            <%
+                                int itemPro = 0;
+                                for (int i = 0; i < list_cat.size(); i++) {
 
+                            %>
                             <!-- Slide -->
                             <div class="owl-item">
                                 <div class="background_image" style="background-image:url(resources/home_page/images/home.jpg)"></div>
@@ -176,175 +47,140 @@
                                         <div class="col fill_height">
                                             <div class="home_container d-flex flex-column align-items-center justify-content-start">
                                                 <div class="home_content">
-                                                    <div class="home_title">Popular</div>
-                                                    <div class="home_subtitle">Summer Wear</div>
+                                                    <div class="home_title"><%=list_cat.get(i).getCategoryname()%></div>
+                                                    <div class="home_subtitle">TOP 3 Sản Phẩm Bán Chạy Nhất</div>
                                                     <div class="home_items">
                                                         <div class="row">
-                                                            <div class="col-sm-3 offset-lg-1">
-                                                                <div class="home_item_side"><a href="product.html"><img src="resources/home_page/images/home_1.jpg" alt=""></a></div>
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
-                                                                <div class="product home_item_large">
-                                                                    <div class="product_tag d-flex flex-column align-items-center justify-content-center">
-                                                                        <div>
-                                                                            <div>from</div>
-                                                                            <div>$3<span>.99</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product_image"><img src="resources/home_page/images/product_1.jpg" alt=""></div>
-                                                                    <div class="product_content">
-                                                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                                                            <div>
-                                                                                <div>
-                                                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-                                                                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="ml-auto text-right">
-                                                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product_buttons">
-                                                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                                                    <div><div><img src="resources/home_page/images/heart.svg" alt=""><div>+</div></div></div>
-                                                                                </div>
-                                                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                                                    <div><div><img src="resources/home_page/images/cart_2.svg" alt=""><div>+</div></div></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3">
-                                                                <div class="home_item_side"><a href="product.html"><img src="resources/home_page/images/home_3.jpg" alt=""></a></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>	
-                            </div>
 
-                            <!-- Slide -->
-                            <div class="owl-item">
-                                <div class="background_image" style="background-image:url(resources/home_page/images/home.jpg)"></div>
-                                <div class="container fill_height">
-                                    <div class="row fill_height">
-                                        <div class="col fill_height">
-                                            <div class="home_container d-flex flex-column align-items-center justify-content-start">
-                                                <div class="home_content">
-                                                    <div class="home_title">Trendsetters</div>
-                                                    <div class="home_subtitle">Summer Wear</div>
-                                                    <div class="home_items">
-                                                        <div class="row">
-                                                            <div class="col-sm-3 offset-lg-1">
-                                                                <div class="home_item_side"><a href="product.html"><img src="resources/home_page/images/home_1.jpg" alt=""></a></div>
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
-                                                                <div class="product home_item_large">
-                                                                    <div class="product_tag d-flex flex-column align-items-center justify-content-center">
-                                                                        <div>
-                                                                            <div>from</div>
-                                                                            <div>$3<span>.99</span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product_image"><img src="resources/home_page/images/product_2.jpg" alt=""></div>
-                                                                    <div class="product_content">
-                                                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                                                            <div>
-                                                                                <div>
-                                                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-                                                                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="ml-auto text-right">
-                                                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product_buttons">
-                                                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                                                    <div><div><img src="resources/home_page/images/heart.svg" alt=""><div>+</div></div></div>
-                                                                                </div>
-                                                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                                                    <div><div><img src="resources/home_page/images/cart_2.svg" alt=""><div>+</div></div></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3">
-                                                                <div class="home_item_side"><a href="product.html"><img src="resources/home_page/images/home_3.jpg" alt=""></a></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>	
-                            </div>
 
-                            <!-- Slide -->
-                            <div class="owl-item">
-                                <div class="background_image" style="background-image:url(resources/home_page/images/home.jpg)"></div>
-                                <div class="container fill_height">
-                                    <div class="row fill_height">
-                                        <div class="col fill_height">
-                                            <div class="home_container d-flex flex-column align-items-center justify-content-start">
-                                                <div class="home_content">
-                                                    <div class="home_title">Premium Items</div>
-                                                    <div class="home_subtitle">Summer Wear</div>
-                                                    <div class="home_items">
-                                                        <div class="row">
-                                                            <div class="col-sm-3 offset-lg-1">
-                                                                <div class="home_item_side"><a href="product.html"><img src="resources/home_page/images/home_1.jpg" alt=""></a></div>
-                                                            </div>
                                                             <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
                                                                 <div class="product home_item_large">
                                                                     <div class="product_tag d-flex flex-column align-items-center justify-content-center">
                                                                         <div>
-                                                                            <div>from</div>
-                                                                            <div>$3<span>.99</span></div>
+                                                                            <div>Giá Từ</div>
+                                                                            <div>
+                                                                                <%=list_pro.get(itemPro).getPriceinput()%> vnđ
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="product_image"><img src="resources/home_page/images/product_3.jpg" alt=""></div>
+
+                                                                    <div class="product_image"><a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>"><img src="https://brain-images-ssl.cdn.dixons.com/4/5/10189554/l_10189554_003.jpg" alt=""></a></div>
+
                                                                     <div class="product_content">
                                                                         <div class="product_info d-flex flex-row align-items-start justify-content-start">
                                                                             <div>
                                                                                 <div>
-                                                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
+                                                                                    <div class="product_name"><a href="product.html"><%=list_pro.get(itemPro).getProductname()%></a></div>
                                                                                     <div class="product_category">In <a href="category.html">Category</a></div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="ml-auto text-right">
                                                                                 <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product_buttons">
-                                                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                                                    <div><div><img src="resources/home_page/images/heart.svg" alt=""><div>+</div></div></div>
-                                                                                </div>
-                                                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                                                    <div><div><img src="resources/home_page/images/cart_2.svg" alt=""><div>+</div></div></div>
+                                                                                <div class="product_price text-right">
+                                                                                    <span><%=list_pro.get(itemPro).getPriceinput()%> vnđ</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
+                                                                            <div class="product_buttons">
+                                                                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
+
+                                                                                    <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+                                                                                        <div><div><img src="resources/home_page/images/cart_2.svg" alt=""><div>+</div></div></div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-3">
-                                                                <div class="home_item_side"><a href="product.html"><img src="resources/home_page/images/home_3.jpg" alt=""></a></div>
+
+                                                            <% itemPro += 1;%>
+                                                            <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
+                                                                <div class="product home_item_large">
+                                                                    <div class="product_tag d-flex flex-column align-items-center justify-content-center">
+                                                                        <div>
+                                                                            <div>Giá Từ</div>
+                                                                            <div>
+                                                                                <%=list_pro.get(itemPro).getPriceinput()%> vnđ
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="product_image"><a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>"><img src="https://brain-images-ssl.cdn.dixons.com/4/5/10189554/l_10189554_003.jpg" alt=""></a></div>
+
+                                                                    <div class="product_content">
+                                                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
+                                                                            <div>
+                                                                                <div>
+                                                                                    <div class="product_name"><a href="product.html"><%=list_pro.get(itemPro).getProductname()%></a></div>
+                                                                                    <div class="product_category">In <a href="category.html">Category</a></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="ml-auto text-right">
+                                                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
+                                                                                <div class="product_price text-right">
+                                                                                    <span><%=list_pro.get(itemPro).getPriceinput()%> vnđ</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
+                                                                            <div class="product_buttons">
+                                                                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
+
+                                                                                    <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+                                                                                        <div><div><img src="resources/home_page/images/cart_2.svg" alt=""><div>+</div></div></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
+                                                            <% itemPro += 1;%>            
+                                                            <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
+                                                                <div class="product home_item_large">
+                                                                    <div class="product_tag d-flex flex-column align-items-center justify-content-center">
+                                                                        <div>
+                                                                            <div>Giá Từ</div>
+                                                                            <div>
+                                                                                <%=list_pro.get(itemPro).getPriceinput()%> vnđ
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="product_image"><a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>"><img src="https://brain-images-ssl.cdn.dixons.com/4/5/10189554/l_10189554_003.jpg" alt=""></a></div>
+
+                                                                    <div class="product_content">
+                                                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
+                                                                            <div>
+                                                                                <div>
+                                                                                    <div class="product_name"><a href="product.html"><%=list_pro.get(itemPro).getProductname()%></a></div>
+                                                                                    <div class="product_category">In <a href="category.html">Category</a></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="ml-auto text-right">
+                                                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
+                                                                                <div class="product_price text-right">
+                                                                                    <span><%=list_pro.get(itemPro).getPriceinput()%> vnđ</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
+                                                                            <div class="product_buttons">
+                                                                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
+
+                                                                                    <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+                                                                                        <div><div><img src="resources/home_page/images/cart_2.svg" alt=""><div>+</div></div></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <% itemPro += 1; %>      
                                                         </div>
                                                     </div>
                                                 </div>
@@ -353,6 +189,9 @@
                                     </div>
                                 </div>	
                             </div>
+                            <%
+                                }
+                            %>
 
                         </div>
                         <div class="home_slider_nav home_slider_nav_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
@@ -386,45 +225,49 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 offset-lg-3">
-                                <div class="section_title text-center">Popular on Little Closet</div>
+                                <div class="section_title text-center">Các Sản Phẩm Phổ Biến</div>
                             </div>
                         </div>
                         <div class="row page_nav_row">
                             <div class="col">
                                 <div class="page_nav">
                                     <ul class="d-flex flex-row align-items-start justify-content-center">
-                                        <li class="active"><a href="category.html">Women</a></li>
-                                        <li><a href="category.html">Men</a></li>
-                                        <li><a href="category.html">Kids</a></li>
-                                        <li><a href="category.html">Home Deco</a></li>
+                                        <li class="active"><a href="category.html">Laptop</a></li>
+                                        <li><a href="category.html">SmartPhone</a></li>
+                                        <li><a href="category.html">TiVi</a></li>
+                                        <li><a href="category.html">Máy Ảnh</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="row products_row">
 
+                            <%
+                                for (int i = 0; i < list_pro_pop.size(); i++) {
+                            %>
                             <!-- Product -->
                             <div class="col-xl-4 col-md-6">
                                 <div class="product">
-                                    <div class="product_image"><img src="https://laptopmy.vn/image/cache/del/xps/xps9360/laptop-dell-xps-13-9360-2017-laptopmyvn(2)-600x600.jpg" alt=""></div>
+                                    <div class="product_image">
+                                        <a href="CheckLogin?page=check&idproduct=<%=list_pro.get(i).getIdproduct()%>">
+                                            <img src="https://laptopmy.vn/image/cache/del/xps/xps9360/laptop-dell-xps-13-9360-2017-laptopmyvn(2)-600x600.jpg" alt="">
+                                        </a>
+                                    </div>
                                     <div class="product_content">
                                         <div class="product_info d-flex flex-row align-items-start justify-content-start">
                                             <div>
                                                 <div>
-                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
+                                                    <div class="product_name"><a href="product.html"><%=list_pro_pop.get(i).getProductname()%></a></div>
                                                     <div class="product_category">In <a href="category.html">Category</a></div>
                                                 </div>
                                             </div>
                                             <div class="ml-auto text-right">
                                                 <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="product_price text-right">$3<span>.99</span></div>
+                                                <div class="product_price text-right"><%=list_pro_pop.get(i).getPriceoutput()%>vnđ</div>
                                             </div>
                                         </div>
                                         <div class="product_buttons">
                                             <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
                                                 <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                                     <div><div><img src="resources/home_page/images/cart.svg" class="svg" alt=""><div>+</div></div></div>
                                                 </div>
@@ -433,166 +276,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <%}%>
 
-                            <!-- Product -->
-                            <div class="col-xl-4 col-md-6">
-                                <div class="product">
-                                    <div class="product_image"><img src="https://laptopmy.vn/image/cache/del/xps/xps9350/laptop-dell-xps-9350-600x600.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                            <div>
-                                                <div>
-                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-                                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                                </div>
-                                            </div>
-                                            <div class="ml-auto text-right">
-                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="product_buttons">
-                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/cart.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="col-xl-4 col-md-6">
-                                <div class="product">
-                                    <div class="product_image"><img src="https://laptopmy.vn/image/cache/del/xps/xps9370/laptop-dell-xps-9370-laptopmy-600x600.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                            <div>
-                                                <div>
-                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-                                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                                </div>
-                                            </div>
-                                            <div class="ml-auto text-right">
-                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="product_buttons">
-                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/cart.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="col-xl-4 col-md-6">
-                                <div class="product">
-                                    <div class="product_image"><img src="resources/home_page/images/product_4.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                            <div>
-                                                <div>
-                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-                                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                                </div>
-                                            </div>
-                                            <div class="ml-auto text-right">
-                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="product_buttons">
-                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/cart.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="col-xl-4 col-md-6">
-                                <div class="product">
-                                    <div class="product_image"><img src="resources/home_page/images/product_5.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                            <div>
-                                                <div>
-                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-                                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                                </div>
-                                            </div>
-                                            <div class="ml-auto text-right">
-                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="product_buttons">
-                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/cart.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="col-xl-4 col-md-6">
-                                <div class="product">
-                                    <div class="product_image"><img src="resources/home_page/images/product_6.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                            <div>
-                                                <div>
-                                                    <div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-                                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                                </div>
-                                            </div>
-                                            <div class="ml-auto text-right">
-                                                <div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="product_price text-right">$3<span>.99</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="product_buttons">
-                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/cart.svg" class="svg" alt=""><div>+</div></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                         <div class="row load_more_row">
                             <div class="col">
-                                <div class="button load_more ml-auto mr-auto"><a href="#">load more</a></div>
+                                <div class="button load_more ml-auto mr-auto"><a href="#">hmm   </a></div>
                             </div>
                         </div>
                     </div>
@@ -608,12 +298,12 @@
 
                                     <!-- Box -->
                                     <div class="box">
-                                        <div class="background_image" style="background-image:url(images/box_1.jpg)"></div>
+                                        <div class="background_image" style="background-image:url(resources/home_page/images/box_1.jpg)"></div>
                                         <div class="box_content d-flex flex-row align-items-center justify-content-start">
                                             <div class="box_left">
                                                 <div class="box_image">
                                                     <a href="category.html">
-                                                        <div class="background_image" style="background-image:url(images/box_1_img.jpg)"></div>
+                                                        <div class="background_image" style="background-image:url(resources/home_page/images/box_1_img.jpg)"></div>
                                                     </a>
                                                 </div>
                                             </div>
@@ -625,12 +315,12 @@
 
                                     <!-- Box -->
                                     <div class="box">
-                                        <div class="background_image" style="background-image:url(images/box_2.jpg)"></div>
+                                        <div class="background_image" style="background-image:url(resources/home_page/images/box_2.jpg)"></div>
                                         <div class="box_content d-flex flex-row align-items-center justify-content-start">
                                             <div class="box_left">
                                                 <div class="box_image">
                                                     <a href="category.html">
-                                                        <div class="background_image" style="background-image:url(images/box_2_img.jpg)"></div>
+                                                        <div class="background_image" style="background-image:url(resources/home_page/images/box_2_img.jpg)"></div>
                                                     </a>
                                                 </div>
                                             </div>
@@ -642,12 +332,12 @@
 
                                     <!-- Box -->
                                     <div class="box">
-                                        <div class="background_image" style="background-image:url(images/box_3.jpg)"></div>
+                                        <div class="background_image" style="background-image:url(resources/home_page/images/box_3.jpg)"></div>
                                         <div class="box_content d-flex flex-row align-items-center justify-content-start">
                                             <div class="box_left">
                                                 <div class="box_image">
                                                     <a href="category.html">
-                                                        <div class="background_image" style="background-image:url(images/box_3_img.jpg)"></div>
+                                                        <div class="background_image" style="background-image:url(resources/home_page/images/box_3_img.jpg)"></div>
                                                     </a>
                                                 </div>
                                             </div>
@@ -673,7 +363,7 @@
                             <div class="col-lg-4 feature_col">
                                 <div class="feature d-flex flex-row align-items-start justify-content-start">
                                     <div class="feature_left">
-                                        <div class="feature_icon"><img src="images/icon_1.svg" alt=""></div>
+                                        <div class="feature_icon"><img src="resources/home_page/images/icon_1.svg" alt=""></div>
                                     </div>
                                     <div class="feature_right d-flex flex-column align-items-start justify-content-center">
                                         <div class="feature_title">Fast Secure Payments</div>
@@ -685,7 +375,7 @@
                             <div class="col-lg-4 feature_col">
                                 <div class="feature d-flex flex-row align-items-start justify-content-start">
                                     <div class="feature_left">
-                                        <div class="feature_icon ml-auto mr-auto"><img src="images/icon_2.svg" alt=""></div>
+                                        <div class="feature_icon ml-auto mr-auto"><img src="resources/home_page/images/icon_2.svg" alt=""></div>
                                     </div>
                                     <div class="feature_right d-flex flex-column align-items-start justify-content-center">
                                         <div class="feature_title">Premium Products</div>
@@ -697,7 +387,7 @@
                             <div class="col-lg-4 feature_col">
                                 <div class="feature d-flex flex-row align-items-start justify-content-start">
                                     <div class="feature_left">
-                                        <div class="feature_icon"><img src="images/icon_3.svg" alt=""></div>
+                                        <div class="feature_icon"><img src="resources/home_page/images/icon_3.svg" alt=""></div>
                                     </div>
                                     <div class="feature_right d-flex flex-column align-items-start justify-content-center">
                                         <div class="feature_title">Free Delivery</div>
@@ -722,7 +412,7 @@
                                         <div class="footer_logo">
                                             <a href="#">
                                                 <div class="d-flex flex-row align-items-center justify-content-start">
-                                                    <div class="footer_logo_icon"><img src="images/logo_2.png" alt=""></div>
+                                                    <div class="footer_logo_icon"><img src="resources/home_page/images/logo_2.png" alt=""></div>
                                                     <div>Little Closet</div>
                                                 </div>
                                             </a>		

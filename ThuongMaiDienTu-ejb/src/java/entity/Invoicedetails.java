@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Invoicedetails.findAll", query = "SELECT i FROM Invoicedetails i")
     , @NamedQuery(name = "Invoicedetails.findByIdinvoice", query = "SELECT i FROM Invoicedetails i WHERE i.invoicedetailsPK.idinvoice = :idinvoice")
     , @NamedQuery(name = "Invoicedetails.findByIdproduct", query = "SELECT i FROM Invoicedetails i WHERE i.invoicedetailsPK.idproduct = :idproduct")
+    , @NamedQuery(name = "Invoicedetails.findByStatus", query = "SELECT i FROM Invoicedetails i WHERE i.status = :status")
     , @NamedQuery(name = "Invoicedetails.findByDatecreate", query = "SELECT i FROM Invoicedetails i WHERE i.datecreate = :datecreate")
     , @NamedQuery(name = "Invoicedetails.findByDatepay", query = "SELECT i FROM Invoicedetails i WHERE i.datepay = :datepay")
     , @NamedQuery(name = "Invoicedetails.findByAmount", query = "SELECT i FROM Invoicedetails i WHERE i.amount = :amount")
@@ -44,6 +45,9 @@ public class Invoicedetails implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected InvoicedetailsPK invoicedetailsPK;
+    @Size(max = 45)
+    @Column(name = "status")
+    private String status;
     @Column(name = "datecreate")
     @Temporal(TemporalType.DATE)
     private Date datecreate;
@@ -83,6 +87,14 @@ public class Invoicedetails implements Serializable {
 
     public void setInvoicedetailsPK(InvoicedetailsPK invoicedetailsPK) {
         this.invoicedetailsPK = invoicedetailsPK;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Date getDatecreate() {
