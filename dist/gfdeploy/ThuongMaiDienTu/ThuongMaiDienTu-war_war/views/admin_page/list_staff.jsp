@@ -31,7 +31,7 @@
                                                     <th>Ngày Sinh</th>
                                                     <th>Địa Chỉ</th>
                                                     <th>Số Điện Thoại</th>
-                                                    <th style="width: 18%">Tùy Chọn</th>
+                                                    <th style="width: 12%">Tùy Chọn</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -49,16 +49,16 @@
                                                     <td>
                                                         <div style="float: left">
                                                             <a href="">
-                                                                <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-warning">
-                                                                    <i class="pe-7s-tools" style="font-size: 1.2rem">
+                                                                <button class="mb-2 mr-3 btn-transition btn btn-outline-warning">
+                                                                    <i class="pe-7s-tools" style="font-size: 1.5rem">
                                                                     </i>
                                                                 </button>
                                                             </a>
                                                         </div>
-                                                        <div style="float: left">
+                                                        <div style="float: right">
                                                             <a onclick="return xacNhan()" href="">
-                                                                <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-danger">
-                                                                    <i class="pe-7s-trash" style="font-size: 1.2rem">
+                                                                <button class="mb-2 mr-3 btn-transition btn btn-outline-danger">
+                                                                    <i class="pe-7s-trash" style="font-size: 1.5rem">
                                                                     </i>
                                                                 </button>
                                                             </a>

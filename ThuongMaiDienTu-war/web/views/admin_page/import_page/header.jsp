@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div class="app-header header-shadow">
     <div class="app-header__logo">
-        <div style="width: 200px; height: 17px;" class="logo-src"></div>
+        <div style="width: 200px; height: 17px;" class=""></div>
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -33,7 +33,7 @@
     <div class="app-header__content">
         <div class="app-header-left" style="width: 75%">
             <div class="tenho" style="font-weight: bold;margin-left: 60%;font-size: 30px;">
-                name par
+                Quản Lý
             </div> 
         </div>
         <div class="app-header-right">
@@ -56,7 +56,6 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
-                                name acc
                             </div>
                             <!-- <div class="widget-subheading">
                                 VP People Manager

@@ -6,3 +6,4 @@
 <link rel="stylesheet" type="text/css" href="resources/home_page/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="resources/home_page/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="resources/home_page/styles/responsive.css">
+

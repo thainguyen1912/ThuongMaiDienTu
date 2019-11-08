@@ -42,7 +42,7 @@ public class CheckLogin extends HttpServlet {
                     response.sendRedirect("LoginPage");
                 }
                 else{
-                    String idPro=request.getParameter("idproduct");
+                    int idPro=Integer.valueOf(request.getParameter("idproduct"));
                     request.setAttribute("idProduct", idPro);
                     RequestDispatcher rd=request.getRequestDispatcher("Cart");
                     rd.forward(request, response);
@@ -57,7 +57,8 @@ public class CheckLogin extends HttpServlet {
                 }
                 else{
                     session.setAttribute("cusSession", cus);
-                    response.sendRedirect("HomePage");
+                    RequestDispatcher rd=request.getRequestDispatcher("HomePage");
+                    rd.forward(request, response);
                 }
                 break;
         }

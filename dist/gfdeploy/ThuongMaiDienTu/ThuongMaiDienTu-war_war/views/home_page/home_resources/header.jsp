@@ -19,7 +19,7 @@
         <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
         <nav class="main_nav">
             <ul class="d-flex flex-row align-items-start justify-content-start">
-                <li class="active"><a href="#">Trang Chủ</a></li>
+                <li class=""><a href="#">Trang Chủ</a></li>
                 <li class=""><a href="#">Laptop</a></li>
                 <li><a href="#">SmartPhone</a></li>
                 <li><a href="#">TiVi</a></li>

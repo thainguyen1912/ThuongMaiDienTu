@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/home_resources/footer.jsp</file>
             <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/cart.jsp</file>
-            <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/Cart.java</file>
+            <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/resources/home_page/js/cart.js</file>
             <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/index.jsp</file>
-            <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/login_page/login.jsp</file>
-            <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/CheckLogin.java</file>
+            <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/Checkout.java</file>
+            <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/checkout.jsp</file>
+            <file>file:/D:/E/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/home_resources/header.jsp</file>
         </group>
     </open-files>
 </project-private>

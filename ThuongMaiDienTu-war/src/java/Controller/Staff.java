@@ -40,6 +40,7 @@ public class Staff extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
+        
         request.setAttribute("title", "list_staff");
         List<entity.Staff> list_sta=staff_s.getAll();
         request.setAttribute("list_staff", list_sta);

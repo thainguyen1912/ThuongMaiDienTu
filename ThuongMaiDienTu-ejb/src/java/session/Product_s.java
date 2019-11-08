@@ -27,6 +27,7 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class Product_s {
 
+
     public List<Product> getAll(){
         DBConnection db=new DBConnection();
         Connection conn=db.getConnect();
@@ -101,5 +102,29 @@ public class Product_s {
             Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list_pro;
+    }
+    public Product getById(int id){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        Product pro=null;
+        String sql="select * from tmdt.product where idproduct='"+id+"'";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int idProduct=rs.getInt("idproduct");
+                Category  category=new Category_s().selectCategoryByID(rs.getInt("idcategory"));
+                String productName=rs.getString("productname");
+                int amountNow=rs.getInt("amountnow");
+                int amountPaid=rs.getInt("amountpaid");
+                long priceInput=rs.getLong("priceinput");
+                long priceoutput=rs.getLong("priceoutput");
+                String productImage=rs.getString("productimage");
+                String moreInfo=rs.getString("moreinfo");
+                pro=new Product(idProduct, productName, amountNow, amountPaid, BigInteger.valueOf(priceInput), BigInteger.valueOf(priceoutput), productImage, moreInfo, category);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pro;
     }
 }

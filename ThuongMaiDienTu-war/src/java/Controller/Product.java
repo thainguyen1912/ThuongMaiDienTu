@@ -31,6 +31,7 @@ public class Product extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         List<entity.Product> list_pro=product_s.getAll();
         request.setAttribute("list_product", list_pro);
         request.setAttribute("title", "list_product");

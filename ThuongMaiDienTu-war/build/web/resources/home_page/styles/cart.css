@@ -817,7 +817,7 @@ section
 }
 .cart_bar_list li:not(:first-child):not(:last-child)
 {
-	margin-right: 30px;
+	margin-right: 84px;
 }
 .item_list > *:first-child
 {
@@ -841,11 +841,11 @@ section
 }
 .cart_item > div:not(:first-child)
 {
-	width: 68px;
+	/*width: 68px;*/
 }
 .cart_item > div:not(:first-child):not(:last-child)
 {
-	margin-right: 30px;
+	margin-right: 50px;
 }
 .product
 {

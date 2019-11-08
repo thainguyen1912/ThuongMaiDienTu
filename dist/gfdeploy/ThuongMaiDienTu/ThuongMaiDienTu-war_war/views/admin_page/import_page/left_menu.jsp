@@ -42,7 +42,7 @@
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <li class="app-sidebar__heading">Dòng họ</li>
+                <li class="app-sidebar__heading">Quản Lý</li>
                 <li>
                     <a href="AdminPage?key=category" class="<%=title.equals("list_category")?"mm-active":"" %>">
                         <i class="metismenu-icon pe-7s-notebook"></i>
@@ -68,7 +68,7 @@
                     </a>
                 </li>
 
-                <li class="app-sidebar__heading">Tin tức</li>
+                <li class="app-sidebar__heading">Ghi Chú</li>
                 <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-note"></i>
@@ -84,25 +84,7 @@
                     </a>
                 </li>
                 
-                <li class="app-sidebar__heading">Tin nhắn</li>
-                <li>
-                    <a href="forms-controls.html">
-                        <i class="metismenu-icon pe-7s-note">
-                        </i>Soạn tin nhắn
-                    </a>
-                </li>
-                <li>
-                    <a href="forms-layouts.html">
-                        <i class="metismenu-icon pe-7s-paper-plane">
-                        </i>Hộp thư đến
-                    </a>
-                </li>
-                <li>
-                    <a href="forms-validation.html">
-                        <i class="metismenu-icon pe-7s-shuffle">
-                        </i>Tin đã gửi
-                    </a>
-                </li>
+                
                 <!-- <li class="app-sidebar__heading">Charts</li>
                 <li>
                     <a href="charts-chartjs.html">
