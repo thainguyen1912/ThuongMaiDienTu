@@ -21,11 +21,22 @@
                             <div class="col-lg-12">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
+                                        
+                                        <div class="mb-3">
+                                            <a href="AddControl?page=category">
+                                                <button class="mb-2 mr-3 btn-transition btn btn-outline-success">
+                                                    <span style="font-size: 16px">Thêm Danh Mục
+                                                    </span>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        
                                         <table class="mb-0 table table-hover" style="text-align: center">
                                             <thead>
                                                 <tr>
                                                     <th>STT</th>
                                                     <th>Tên Danh Mục</th>
+                                                    <th>Tình Trạng</th>
                                                     <th style="width: 12%">Tùy Chọn</th>
                                                 </tr>
                                             </thead>
@@ -37,6 +48,7 @@
                                                 <tr>
                                                     <th><%=i + 1%></th>
                                                     <td><%=list_cat.get(i).getCategoryname()%></td>
+                                                    <td><%=list_cat.get(i).getStatus().equals("0")?"Tạm Ngừng Kinh Doanh":"Đang Kinh Doanh"%></td>
                                                     <td>
                                                         <div style="float: left">
                                                             <a href="">

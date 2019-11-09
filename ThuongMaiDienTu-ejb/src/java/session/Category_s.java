@@ -29,7 +29,8 @@ public class Category_s{
             while(rs.next()){
                 int id=rs.getInt("idcategory");
                 String name=rs.getString("categoryname");
-                Category cat=new Category(id, name);
+                String status=rs.getString("status");
+                Category cat=new Category(id, name, status);
                 list_cat.add(cat);
             }
         } catch (SQLException ex) {
@@ -47,7 +48,8 @@ public class Category_s{
             while(rs.next()){
                 int id=rs.getInt("idcategory");
                 String name=rs.getString("categoryname");
-                cat=new Category(id, name);
+                String status=rs.getString("status");
+                cat=new Category(id, name, status);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Category_s.class.getName()).log(Level.SEVERE, null, ex);

@@ -40,12 +40,39 @@ public class Staff_s {
                 Date dateBirth=rs.getDate("datebirth");
                 String address=rs.getString("address");
                 String phoneNumber=rs.getString("phonenumber");
-                Staff sta=new Staff(idStaff, staffName, gender, dateBirth, address, phoneNumber);
+                String permission=rs.getString("permission");
+                String userName=rs.getString("username");
+                String password=rs.getString("password");
+                Staff sta=new Staff(idStaff, staffName, gender, dateBirth, address, phoneNumber, permission, userName, password);
                 list_sta.add(sta);
             }
         } catch (SQLException ex) { 
             Logger.getLogger(Staff_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list_sta;
+    }
+    public Staff getByUserPass(String user, String pass){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        Staff sta=null;
+        String sql="select * from tmdt.staff where username='"+user+"' and password='"+pass+"'";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int idStaff=rs.getInt("idstaff");
+                String staffName=rs.getString("staffname");
+                String gender=rs.getString("gender");
+                Date dateBirth=rs.getDate("datebirth");
+                String address=rs.getString("address");
+                String phoneNumber=rs.getString("phonenumber");
+                String permission=rs.getString("permission");
+                String userName=rs.getString("username");
+                String password=rs.getString("password");
+                sta=new Staff(idStaff, staffName, gender, dateBirth, address, phoneNumber, permission, userName, password);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sta;
     }
 }

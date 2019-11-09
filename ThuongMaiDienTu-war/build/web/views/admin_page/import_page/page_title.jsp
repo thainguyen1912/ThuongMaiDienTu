@@ -15,8 +15,8 @@
         case "list_customer":
             title="Danh Sách Người Dùng";
             break;
-        case "list_individual":
-            title="Danh Sách Thành Viên";
+        case "add_category":
+            title="Thêm Danh Mục Sản Phẩm";
             break;
         case "list_avatar":
             title="Danh Sách Ảnh";

@@ -26,8 +26,21 @@ public class LoginPage extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
-        RequestDispatcher rd=request.getRequestDispatcher("views/login_page/login.jsp");
-        rd.forward(request, response);
+        
+        String page=request.getParameter("page");
+        RequestDispatcher rd=null;
+        switch(page){
+            case "userlogin":
+                rd=request.getRequestDispatcher("views/login_page/userlogin.jsp");
+                rd.forward(request, response);
+                break;
+            case "adminlogin":
+                rd=request.getRequestDispatcher("views/login_page/adminlogin.jsp");
+                rd.forward(request, response);
+                break;
+        }
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

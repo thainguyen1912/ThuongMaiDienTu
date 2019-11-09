@@ -31,6 +31,8 @@
                                                     <th>Ngày Sinh</th>
                                                     <th>Địa Chỉ</th>
                                                     <th>Số Điện Thoại</th>
+                                                    <th>Quyền</th>
+                                                    <th>Tài Khoản</th>
                                                     <th style="width: 12%">Tùy Chọn</th>
                                                 </tr>
                                             </thead>
@@ -46,6 +48,8 @@
                                                     <td><%=list_sta.get(i).getDatebirth()%></td>
                                                     <td><%=list_sta.get(i).getAddress()%></td>
                                                     <td><%=list_sta.get(i).getPhonenumber()%></td>
+                                                    <td><%=list_sta.get(i).getPermission().equals("0")?"Nhân Viên":"Quản Trị"%></td>
+                                                    <td><%=list_sta.get(i).getUsername()%></td>
                                                     <td>
                                                         <div style="float: left">
                                                             <a href="">

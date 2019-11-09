@@ -6,6 +6,9 @@
     List<Category> list_cat = (List<Category>) request.getAttribute("list_category");
     List<Product> list_pro = (List<Product>) request.getAttribute("list_product");
     List<Product> list_pro_pop = (List<Product>) request.getAttribute("list_product_popular");
+    if(session.getAttribute("adminSess")!=null){
+        session.removeAttribute("adminSess");
+    }
 %>
 
 <!DOCTYPE html>
@@ -81,7 +84,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
+                                                                        <a href="CheckLogin?page=checkloginuser&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
                                                                             <div class="product_buttons">
                                                                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
 
@@ -125,7 +128,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
+                                                                        <a href="CheckLogin?page=checkloginuser&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
                                                                             <div class="product_buttons">
                                                                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
 
@@ -167,7 +170,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <a href="CheckLogin?page=checklogined&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
+                                                                        <a href="CheckLogin?page=checkloginuser&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
                                                                             <div class="product_buttons">
                                                                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
 

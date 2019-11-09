@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import session.Customer_s;
+import session.Staff_s;
 
 /**
  *
@@ -23,6 +24,9 @@ import session.Customer_s;
  */
 @WebServlet(name = "CheckLogin", urlPatterns = {"/CheckLogin"})
 public class CheckLogin extends HttpServlet {
+
+    @EJB
+    private Staff_s staff_s;
 
     @EJB
     private Customer_s customer_s;
@@ -36,10 +40,10 @@ public class CheckLogin extends HttpServlet {
         String page=request.getParameter("page");
         HttpSession session=request.getSession();
         switch(page){
-            case "checklogined":
+            case "checkloginuser":
                 
                 if(session.getAttribute("cusSession")==null){
-                    response.sendRedirect("LoginPage");
+                    response.sendRedirect("LoginPage?page=userlogin");
                 }
                 else{
                     int idPro=Integer.valueOf(request.getParameter("idproduct"));
@@ -48,12 +52,25 @@ public class CheckLogin extends HttpServlet {
                     rd.forward(request, response);
                 }
                 break;
-            case"checklogininfo":
+                
+            case "checkloginadmin":
+                
+                if(session.getAttribute("adminSess")==null){
+                    response.sendRedirect("LoginPage?page=adminlogin");
+                }
+                else{
+                    RequestDispatcher rd=request.getRequestDispatcher("AdminPage?key=category");
+                    rd.forward(request, response);
+                }
+                break;  
+                
+            case"checklogininfouser":
                 String user=request.getParameter("username");
                 String pass=request.getParameter("pass");
                 entity.Customer cus=customer_s.getByUserPass(user, pass);
                 if(cus==null){
-                    response.sendRedirect("LoginPage");
+                    
+                    response.sendRedirect("LoginPage?page=userlogin");
                 }
                 else{
                     session.setAttribute("cusSession", cus);
@@ -61,6 +78,20 @@ public class CheckLogin extends HttpServlet {
                     rd.forward(request, response);
                 }
                 break;
+                
+            case"checklogininfoadmin":
+                String user1=request.getParameter("username");
+                String pass1=request.getParameter("pass");
+                entity.Staff sta=staff_s.getByUserPass(user1, pass1);
+                if(sta==null){
+                    response.sendRedirect("LoginPage?page=adminlogin");
+                }
+                else{
+                    session.setAttribute("adminSess", sta);
+                    RequestDispatcher rd=request.getRequestDispatcher("Category");
+                    rd.forward(request, response);
+                }
+                break;    
         }
     }
 
