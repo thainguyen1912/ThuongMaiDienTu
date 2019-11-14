@@ -16,13 +16,13 @@
             title="Danh Sách Người Dùng";
             break;
         case "add_category":
-            title="Thêm Danh Mục Sản Phẩm";
+            title="Thêm Danh Mục";
             break;
-        case "list_avatar":
-            title="Danh Sách Ảnh";
+        case "edit_category":
+            title="Chỉnh Sửa Danh Mục";
             break;
-        case "user_info":
-            title="Thông Tin Người Dùng";
+        case "add_product":
+            title="Thêm Sản Phẩm";
             break;
         case "change_pass":
             title="Đổi Mật Khẩu Tài Khoản";

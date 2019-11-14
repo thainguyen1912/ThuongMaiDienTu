@@ -6,7 +6,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -61,8 +60,9 @@ public class Invoicedetails implements Serializable {
     private String style;
     @Column(name = "discount")
     private Integer discount;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "realprice")
-    private BigInteger realprice;
+    private long realprice;
     @Size(max = 45)
     @Column(name = "moreinfo")
     private String moreinfo;
@@ -137,11 +137,11 @@ public class Invoicedetails implements Serializable {
         this.discount = discount;
     }
 
-    public BigInteger getRealprice() {
+    public long getRealprice() {
         return realprice;
     }
 
-    public void setRealprice(BigInteger realprice) {
+    public void setRealprice(long realprice) {
         this.realprice = realprice;
     }
 

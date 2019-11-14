@@ -1,14 +1,17 @@
 package entity;
 
+import entity.Invoice;
 import java.util.Date;
 import javax.annotation.Generated;
+import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-11-14T09:22:18")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-11-14T22:55:55")
 @StaticMetamodel(Staff.class)
 public class Staff_ { 
 
+    public static volatile ListAttribute<Staff, Invoice> invoiceList;
     public static volatile SingularAttribute<Staff, Date> datebirth;
     public static volatile SingularAttribute<Staff, String> password;
     public static volatile SingularAttribute<Staff, String> address;

@@ -3,9 +3,6 @@
 <!doctype html>
 <html lang="en">
     <jsp:include page="import_page/import.jsp" flush="true"/>
-    <script src="resources/admin_page/js/upload_image.js"></script>
-    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="resources/admin_page/css/upload_image.css">
     <body>
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
             <jsp:include page="import_page/header.jsp" flush="true"/> 
@@ -41,12 +38,13 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="position-relative row form-check" style="clear: both">
-                                                        <div class="col-sm-10 offset-sm-2">
-                                                            <button style="margin-left: 30%;" class="btn btn-primary" type="submit">
-                                                                Cập Nhật Thông Tin
-                                                            </button>
-                                                        </div>
+
+                                                </div>
+                                                <div class="position-relative row form-check" style="clear: both">
+                                                    <div class="col-sm-10 offset-sm-2">
+                                                        <button style="margin-left: 30%;" class="btn btn-primary" type="submit">
+                                                            Cập Nhật Thông Tin
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>

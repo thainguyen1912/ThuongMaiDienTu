@@ -7,11 +7,14 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import session.Category_s;
 
 /**
  *
@@ -19,6 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CategoryControl", urlPatterns = {"/CategoryControl"})
 public class CategoryControl extends HttpServlet {
+
+    @EJB
+    private Category_s category_s;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,14 +39,39 @@ public class CategoryControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
-        
         String page=request.getParameter("page");
+        RequestDispatcher rd=null;
         switch(page){
             case "add":
-                String cateName=request.getParameter("name");
-                String status=request.getParameter("status");
-                entity.Category cat=new entity.Category(cateName, status);
+                String cateName_a=request.getParameter("name");
+                String status_a=request.getParameter("status");
                 
+                entity.Category cat_a=new entity.Category(cateName_a, status_a);
+                category_s.insert(cat_a);
+                
+                request.setAttribute("title", "list_category");
+                rd=request.getRequestDispatcher("Category");
+                rd.forward(request, response);
+                break;
+                
+            case "edit":
+                int id_e=Integer.valueOf(request.getParameter("id"));
+                String cateName_e=request.getParameter("name");
+                String status_e=request.getParameter("status");
+                
+                entity.Category cat_e=new entity.Category(id_e, cateName_e, status_e);
+                category_s.update(cat_e);
+                
+                request.setAttribute("title", "list_category");
+                rd=request.getRequestDispatcher("Category");
+                rd.forward(request, response);
+                break;
+            case "delete":
+                int id_d=Integer.valueOf(request.getParameter("id"));
+                category_s.delete(id_d);
+                request.setAttribute("title", "list_category");
+                rd=request.getRequestDispatcher("Category");
+                rd.forward(request, response);
                 break;
         }
     }

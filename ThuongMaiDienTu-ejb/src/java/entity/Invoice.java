@@ -6,7 +6,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,8 +38,9 @@ public class Invoice implements Serializable {
     @Basic(optional = false)
     @Column(name = "idinvoice")
     private Integer idinvoice;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "totalmoney")
-    private BigInteger totalmoney;
+    private long totalmoney;
     @JoinColumn(name = "idcustomer", referencedColumnName = "idcustomer")
     @ManyToOne(optional = false)
     private Customer idcustomer;
@@ -63,11 +63,11 @@ public class Invoice implements Serializable {
         this.idinvoice = idinvoice;
     }
 
-    public BigInteger getTotalmoney() {
+    public long getTotalmoney() {
         return totalmoney;
     }
 
-    public void setTotalmoney(BigInteger totalmoney) {
+    public void setTotalmoney(long totalmoney) {
         this.totalmoney = totalmoney;
     }
 

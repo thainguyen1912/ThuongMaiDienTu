@@ -51,15 +51,16 @@
                                                     <td><%=list_cat.get(i).getStatus().equals("0")?"Tạm Ngừng Kinh Doanh":"Đang Kinh Doanh"%></td>
                                                     <td>
                                                         <div style="float: left">
-                                                            <a href="">
+                                                            <a href="EditControl?page=category&id=<%=list_cat.get(i).getIdcategory() %>">
                                                                 <button class="mb-2 mr-3 btn-transition btn btn-outline-warning">
                                                                     <i class="pe-7s-tools" style="font-size: 1.5rem">
                                                                     </i>
                                                                 </button>
                                                             </a>
                                                         </div>
-                                                        <div style="float: right">
-                                                            <a onclick="return xacNhan()" href="">
+                                                        <div style="float: left">
+                                                            <a onclick="return xacNhan()" 
+                                                               href="CategoryControl?page=delete&id=<%=list_cat.get(i).getIdcategory() %>">
                                                                 <button class="mb-2 mr-3 btn-transition btn btn-outline-danger">
                                                                     <i class="pe-7s-trash" style="font-size: 1.5rem">
                                                                     </i>

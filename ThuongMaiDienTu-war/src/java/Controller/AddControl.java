@@ -7,12 +7,15 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import session.Category_s;
 
 /**
  *
@@ -21,6 +24,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AddControl", urlPatterns = {"/AddControl"})
 public class AddControl extends HttpServlet {
 
+    @EJB
+    private Category_s category_s;
+
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -28,11 +34,18 @@ public class AddControl extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         
         String page=request.getParameter("page");
-        System.out.println(page);
+        RequestDispatcher rd=null;
         switch(page){
             case "category":
                 request.setAttribute("title", "add_category");
-                RequestDispatcher rd=request.getRequestDispatcher("views/admin_page/add_category.jsp");
+                rd=request.getRequestDispatcher("views/admin_page/add_category.jsp");
+                rd.forward(request, response);
+                break;
+            case "product":
+                List<entity.Category> list_cat=category_s.getAll();
+                request.setAttribute("list_category", list_cat);
+                request.setAttribute("title", "add_product");
+                rd=request.getRequestDispatcher("views/admin_page/add_product.jsp");
                 rd.forward(request, response);
                 break;
         }

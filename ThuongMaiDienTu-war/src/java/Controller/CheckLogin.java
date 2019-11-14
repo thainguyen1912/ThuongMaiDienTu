@@ -88,8 +88,7 @@ public class CheckLogin extends HttpServlet {
                 }
                 else{
                     session.setAttribute("adminSess", sta);
-                    RequestDispatcher rd=request.getRequestDispatcher("Category");
-                    rd.forward(request, response);
+                    response.sendRedirect("Category");
                 }
                 break;    
         }

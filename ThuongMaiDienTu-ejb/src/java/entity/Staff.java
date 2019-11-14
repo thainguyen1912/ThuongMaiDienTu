@@ -7,7 +7,9 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,11 +17,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -71,8 +75,21 @@ public class Staff implements Serializable {
     @Size(max = 45)
     @Column(name = "password")
     private String password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idstaff")
+    private List<Invoice> invoiceList;
 
     public Staff() {
+    }
+
+    public Staff(String staffname, String gender, Date datebirth, String address, String phonenumber, String permission, String username, String password) {
+        this.staffname = staffname;
+        this.gender = gender;
+        this.datebirth = datebirth;
+        this.address = address;
+        this.phonenumber = phonenumber;
+        this.permission = permission;
+        this.username = username;
+        this.password = password;
     }
 
     public Staff(Integer idstaff, String staffname, String gender, Date datebirth, String address, String phonenumber, String permission, String username, String password) {
@@ -161,6 +178,15 @@ public class Staff implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @XmlTransient
+    public List<Invoice> getInvoiceList() {
+        return invoiceList;
+    }
+
+    public void setInvoiceList(List<Invoice> invoiceList) {
+        this.invoiceList = invoiceList;
     }
 
     @Override

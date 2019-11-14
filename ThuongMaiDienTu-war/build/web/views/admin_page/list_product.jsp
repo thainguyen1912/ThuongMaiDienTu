@@ -21,6 +21,14 @@
                             <div class="col-lg-12">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
+                                        <div class="mb-3">
+                                            <a href="AddControl?page=product">
+                                                <button class="mb-2 mr-3 btn-transition btn btn-outline-success">
+                                                    <span style="font-size: 16px">Thêm Sản Phẩm
+                                                    </span>
+                                                </button>
+                                            </a>
+                                        </div>
                                         <table class="mb-0 table table-hover" style="text-align: center">
                                             <thead>
                                                 <tr>
@@ -49,7 +57,7 @@
                                                     <td><%=list_pro.get(i).getAmountpaid()%></td>
                                                     <td><%=list_pro.get(i).getPriceinput()%></td>
                                                     <td><%=list_pro.get(i).getPriceoutput()%></td>
-                                                    <td><%=list_pro.get(i).getProductimage()%></td>
+                                                    <td><img src="resources/home_page/images/product/<%=list_pro.get(i).getProductimage()%>" width="70px" height="70px"></td>
                                                     <td><%=list_pro.get(i).getMoreinfo()%></td>
                                                     <td>
                                                         <div style="float: left">

@@ -10,6 +10,7 @@ import entity.Category;
 import entity.Product;
 import java.math.BigInteger;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class Product_s {
                 long priceoutput=rs.getLong("priceoutput");
                 String productImage=rs.getString("productimage");
                 String moreInfo=rs.getString("moreinfo");
-                Product pro=new Product(idProduct, productName, amountNow, amountPaid, BigInteger.valueOf(priceInput), BigInteger.valueOf(priceoutput), productImage, moreInfo, category);
+                Product pro=new Product(idProduct, productName, amountNow, amountPaid, priceInput, priceoutput, productImage, moreInfo, category);
                 list_pro.add(pro);
             }
         } catch (SQLException ex) { 
@@ -70,7 +71,7 @@ public class Product_s {
                 long priceoutput=rs.getLong("priceoutput");
                 String productImage=rs.getString("productimage");
                 String moreInfo=rs.getString("moreinfo");
-                Product pro=new Product(idProduct, productName, amountNow, amountPaid, BigInteger.valueOf(priceInput), BigInteger.valueOf(priceoutput), productImage, moreInfo, category);
+                Product pro=new Product(idProduct, productName, amountNow, amountPaid, priceInput, priceoutput, productImage, moreInfo, category);
                 list_pro.add(pro);
             }
         } catch (SQLException ex) { 
@@ -95,7 +96,7 @@ public class Product_s {
                 long priceoutput=rs.getLong("priceoutput");
                 String productImage=rs.getString("productimage");
                 String moreInfo=rs.getString("moreinfo");
-                Product pro=new Product(idProduct, productName, amountNow, amountPaid, BigInteger.valueOf(priceInput), BigInteger.valueOf(priceoutput), productImage, moreInfo, category);
+                Product pro=new Product(idProduct, productName, amountNow, amountPaid, priceInput, priceoutput, productImage, moreInfo, category);
                 list_pro.add(pro);
             }
         } catch (SQLException ex) { 
@@ -120,11 +121,33 @@ public class Product_s {
                 long priceoutput=rs.getLong("priceoutput");
                 String productImage=rs.getString("productimage");
                 String moreInfo=rs.getString("moreinfo");
-                pro=new Product(idProduct, productName, amountNow, amountPaid, BigInteger.valueOf(priceInput), BigInteger.valueOf(priceoutput), productImage, moreInfo, category);
+                pro=new Product(idProduct, productName, amountNow, amountPaid, priceInput, priceoutput, productImage, moreInfo, category);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return pro;
+    }
+    
+    public int selectCount(int idCat){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int count =0;
+        String sql="select count(idproduct) as 'count' from tmdt.product where idcategory=?";
+        PreparedStatement pre;
+        try {
+            pre = conn.prepareStatement(sql);
+            pre.setInt(1, idCat);
+            ResultSet rs=pre.executeQuery();
+            if(rs.next()){
+                count=rs.getInt("count");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        System.out.println(new Product_s().selectCount(1));
     }
 }

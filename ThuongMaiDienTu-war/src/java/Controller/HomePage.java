@@ -35,7 +35,16 @@ public class HomePage extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         
         List<entity.Category> list_cat=category_s.getAll();
+        
+        for(int i=0;i<list_cat.size();i++){
+            if(product_s.selectCount(list_cat.get(i).getIdcategory())<3){
+                list_cat.remove(i);
+                i-=1;
+            }
+        }
+        
         List<entity.Product> list_pro=new ArrayList<>();
+        
         for(int i=0;i<list_cat.size();i++){
             List<entity.Product> ls=product_s.selectTopByIdCat(list_cat.get(i).getIdcategory(), 3);
             list_pro.addAll(ls);
