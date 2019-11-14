@@ -6,7 +6,7 @@
     List<Category> list_cat = (List<Category>) request.getAttribute("list_category");
     List<Product> list_pro = (List<Product>) request.getAttribute("list_product");
     List<Product> list_pro_pop = (List<Product>) request.getAttribute("list_product_popular");
-    if(session.getAttribute("adminSess")!=null){
+    if (session.getAttribute("adminSess") != null) {
         session.removeAttribute("adminSess");
     }
 %>
@@ -40,7 +40,6 @@
                             <%
                                 int itemPro = 0;
                                 for (int i = 0; i < list_cat.size(); i++) {
-
                             %>
                             <!-- Slide -->
                             <div class="owl-item">
@@ -67,7 +66,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                                <div class="product_image"><a href=""><img src="resources/home_page/images/product/<%=list_pro.get(itemPro).getProductimage() %>" alt=""></a></div>
+                                                                    <div class="product_image"><a href=""><img src="resources/home_page/images/product/<%=list_pro.get(itemPro).getProductimage()%>" alt=""></a></div>
 
                                                                     <div class="product_content">
                                                                         <div class="product_info d-flex flex-row align-items-start justify-content-start">
@@ -111,7 +110,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="product_image"><a href=""><img src="resources/home_page/images/product/<%=list_pro.get(itemPro).getProductimage() %>" alt=""></a></div>
+                                                                    <div class="product_image"><a href=""><img src="resources/home_page/images/product/<%=list_pro.get(itemPro).getProductimage()%>" alt=""></a></div>
 
                                                                     <div class="product_content">
                                                                         <div class="product_info d-flex flex-row align-items-start justify-content-start">
@@ -153,7 +152,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="product_image"><a href=""><img src="resources/home_page/images/product/<%=list_pro.get(itemPro).getProductimage() %>" alt=""></a></div>
+                                                                    <div class="product_image"><a href=""><img src="resources/home_page/images/product/<%=list_pro.get(itemPro).getProductimage()%>" alt=""></a></div>
 
                                                                     <div class="product_content">
                                                                         <div class="product_info d-flex flex-row align-items-start justify-content-start">
@@ -254,7 +253,7 @@
                                 <div class="product">
                                     <div class="product_image">
                                         <a href="">
-                                            <img src="resources/home_page/images/product/<%=list_pro.get(i).getProductimage() %>" alt="">
+                                            <img src="resources/home_page/images/product/<%=list_pro.get(i).getProductimage()%>" alt="">
                                         </a>
                                     </div>
                                     <div class="product_content">
@@ -271,13 +270,13 @@
                                             </div>
                                         </div>
                                         <a href="CheckLogin?page=check&idproduct=<%=list_pro.get(i).getIdproduct()%>">    
-                                        <div class="product_buttons">
-                                            <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                                <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                                    <div><div><img src="resources/home_page/images/cart.svg" class="svg" alt=""><div>+</div></div></div>
+                                            <div class="product_buttons">
+                                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
+                                                    <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+                                                        <div><div><img src="resources/home_page/images/cart.svg" class="svg" alt=""><div>+</div></div></div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         </a>
                                     </div>
                                 </div>
@@ -405,7 +404,7 @@
                     </div>
                 </div>
                 <jsp:include page="home_resources/footer.jsp" flush="true" />
-                
+
             </div>
 
         </div>

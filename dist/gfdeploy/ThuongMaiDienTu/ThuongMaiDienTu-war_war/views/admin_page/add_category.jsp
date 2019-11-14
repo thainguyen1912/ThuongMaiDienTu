@@ -19,7 +19,7 @@
                             <div class="tab-pane tabs-animation fade active show" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
-                                        <form class="" style="width: 100%" action="" method="post" enctype="multipart/form-data">
+                                        <form class="" style="width: 100%" action="CategoryControl?page=add" method="post">
                                             <div>
                                                 <div style="width: 60%; float: left">
                                                     <div class="position-relative row form-group">
@@ -31,11 +31,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
-                                                        <label for="gender" class="col-sm-2 col-form-label">
+                                                        <label for="status" class="col-sm-2 col-form-label">
                                                             Tình Trạng
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <select name="gender" id="gender" class="form-control">
+                                                            <select name="status" id="gender" class="form-control">
                                                                 <option value="1" >Đang Kinh Doanh</option>
                                                                 <option value="0" >Tạm Ngừng Kinh Doanh</option>
                                                             </select>

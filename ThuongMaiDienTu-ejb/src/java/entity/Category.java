@@ -48,6 +48,13 @@ public class Category implements Serializable {
     public Category() {
     }
 
+    public Category(String categoryname, String status) {
+        this.categoryname = categoryname;
+        this.status = status;
+    }
+
+    
+    
     public Category(Integer idcategory, String categoryname, String status) {
         this.idcategory = idcategory;
         this.categoryname = categoryname;

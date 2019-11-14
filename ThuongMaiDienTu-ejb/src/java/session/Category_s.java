@@ -22,7 +22,7 @@ public class Category_s{
     public List<Category> getAll(){
         DBConnection db=new DBConnection();
         Connection conn=db.getConnect();
-        List<Category> list_cat=new ArrayList<Category>();
+        List<Category> list_cat=new ArrayList<>();
         String sql="select * from tmdt.category";
         try {
             ResultSet rs=conn.createStatement().executeQuery(sql);

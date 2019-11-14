@@ -41,9 +41,11 @@ public class HomePage extends HttpServlet {
             list_pro.addAll(ls);
         }
         List<entity.Product> list_pro_pop=product_s.selectTop(20);
+        
         request.setAttribute("list_category", list_cat);
         request.setAttribute("list_product", list_pro);
         request.setAttribute("list_product_popular", list_pro_pop);
+        
         RequestDispatcher rd=request.getRequestDispatcher("views/home_page/index.jsp");
         rd.forward(request, response);
     }
