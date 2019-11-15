@@ -87,8 +87,10 @@ public class CheckLogin extends HttpServlet {
                     response.sendRedirect("LoginPage?page=adminlogin");
                 }
                 else{
-                    session.setAttribute("adminSess", sta);
-                    response.sendRedirect("Category");
+                    if(sta.getPermission().equals("1")){
+                        session.setAttribute("adminSess", sta);
+                        response.sendRedirect("Category");
+                    }
                 }
                 break;    
         }

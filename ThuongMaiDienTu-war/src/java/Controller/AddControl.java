@@ -48,6 +48,11 @@ public class AddControl extends HttpServlet {
                 rd=request.getRequestDispatcher("views/admin_page/add_product.jsp");
                 rd.forward(request, response);
                 break;
+            case "staff":
+                request.setAttribute("title", "add_staff");
+                rd=request.getRequestDispatcher("views/admin_page/add_staff.jsp");
+                rd.forward(request, response);
+                break;
         }
         
     }

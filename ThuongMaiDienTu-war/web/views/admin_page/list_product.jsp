@@ -61,7 +61,7 @@
                                                     <td><%=list_pro.get(i).getMoreinfo()%></td>
                                                     <td>
                                                         <div style="float: left">
-                                                            <a href="">
+                                                            <a href="EditControl?page=product&id=<%=list_pro.get(i).getIdproduct() %>">
                                                                 <button class="mb-2 mr-3 btn-transition btn btn-outline-warning">
                                                                     <i class="pe-7s-tools" style="font-size: 1.5rem">
                                                                     </i>
@@ -69,7 +69,8 @@
                                                             </a>
                                                         </div>
                                                         <div style="float: right">
-                                                            <a onclick="return xacNhan()" href="">
+                                                            <a onclick="return xacNhan()" 
+                                                               href="ProductControl?page=delete&id=<%=list_pro.get(i).getIdproduct()%>">
                                                                 <button class="mb-2 mr-3 btn-transition btn btn-outline-danger">
                                                                     <i class="pe-7s-trash" style="font-size: 1.5rem">
                                                                     </i>

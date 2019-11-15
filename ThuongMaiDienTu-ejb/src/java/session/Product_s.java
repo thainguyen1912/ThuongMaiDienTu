@@ -147,7 +147,65 @@ public class Product_s {
         }
         return count;
     }
-    public static void main(String[] args) {
-        System.out.println(new Product_s().selectCount(1));
+    public int insert(Product pro){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int n=0;
+        String sql="insert into tmdt.product(idcategory, productname, amountnow, amountpaid, priceinput, priceoutput, productimage, moreinfo)"
+                + " values(?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement pre;
+        try {
+            pre = conn.prepareStatement(sql);
+            pre.setInt(1, pro.getIdcategory().getIdcategory());
+            pre.setString(2, pro.getProductname());
+            pre.setInt(3, pro.getAmountnow());
+            pre.setInt(4, pro.getAmountpaid());
+            pre.setLong(5, pro.getPriceinput());
+            pre.setLong(6, pro.getPriceoutput());
+            pre.setString(7, pro.getProductimage());
+            pre.setString(8, pro.getMoreinfo());
+            n=pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+    public int update(Product pro){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int n=0;
+        String sql="update tmdt.product set idcategory=?, productname=?, amountnow=?, amountpaid=?,"
+                + " priceinput=?, priceoutput=?, productimage=?, moreinfo=? where idproduct=?";
+        PreparedStatement pre;
+        try {
+            pre = conn.prepareStatement(sql);
+            pre.setInt(1, pro.getIdcategory().getIdcategory());
+            pre.setString(2, pro.getProductname());
+            pre.setInt(3, pro.getAmountnow());
+            pre.setInt(4, pro.getAmountpaid());
+            pre.setLong(5, pro.getPriceinput());
+            pre.setLong(6, pro.getPriceoutput());
+            pre.setString(7, pro.getProductimage());
+            pre.setString(8, pro.getMoreinfo());
+            pre.setInt(9, pro.getIdproduct());
+            n=pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+    public int delete(int id){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int n=0;
+        String sql="delete from tmdt.product where idproduct=?";
+        try {
+            PreparedStatement pre=conn.prepareStatement(sql);
+            pre.setInt(1, id);
+            n=pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Category_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
     }
 }

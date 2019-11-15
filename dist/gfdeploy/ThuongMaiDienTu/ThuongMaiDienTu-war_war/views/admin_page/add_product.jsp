@@ -35,11 +35,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
-                                                        <label for="name" class="col-sm-2 col-form-label">
+                                                        <label for="idcategory" class="col-sm-2 col-form-label">
                                                             Thuộc Danh Mục
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <select name="categoryname" class="form-control">
+                                                            <select name="idcategory" class="form-control">
                                                                 <%
                                                                     for (int i = 0; i < list_cat.size(); i++) {
                                                                 %>
@@ -83,7 +83,7 @@
                                                             <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Chọn Ảnh</button>
 
                                                             <div class="image-upload-wrap">
-                                                                <input class="file-upload-input" type="file" name="avatar" size="50" onchange="readURL(this);" accept="image/*" />
+                                                                <input class="file-upload-input" type="file" name="image" size="50" onchange="readURL(this);" accept="image/*" />
                                                                 <div class="drag-text">
                                                                     <h3>
                                                                         Kéo Và Thả một File Vào Đây
