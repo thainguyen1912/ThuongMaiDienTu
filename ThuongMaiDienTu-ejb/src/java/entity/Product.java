@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entity;
 
 import java.io.Serializable;
@@ -94,6 +90,15 @@ public class Product implements Serializable {
         this.amountpaid = amountpaid;
         this.priceinput = priceinput;
         this.priceoutput = priceoutput;
+        this.productimage = productimage;
+        this.moreinfo = moreinfo;
+        this.idcategory = idcategory;
+    }
+
+    public Product(String productname, Integer amountnow, long priceinput, String productimage, String moreinfo, Category idcategory) {
+        this.productname = productname;
+        this.amountnow = amountnow;
+        this.priceinput = priceinput;
         this.productimage = productimage;
         this.moreinfo = moreinfo;
         this.idcategory = idcategory;

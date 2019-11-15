@@ -24,11 +24,11 @@
         case "add_product":
             title="Thêm Sản Phẩm";
             break;
-        case "change_pass":
-            title="Đổi Mật Khẩu Tài Khoản";
+        case "edit_product":
+            title="Sửa Thông Tin Sản Phẩm";
             break;
-        case "list_parentage":
-            title="Danh Sách Gia Phả Đang Quản Lý"   ;
+        case "add_staff":
+            title="Thêm Nhân Viên"   ;
             break;
         default:
             title="null";

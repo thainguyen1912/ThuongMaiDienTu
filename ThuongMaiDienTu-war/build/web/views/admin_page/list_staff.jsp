@@ -22,6 +22,14 @@
                             <div class="col-lg-12">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
+                                        <div class="mb-3">
+                                            <a href="AddControl?page=staff">
+                                                <button class="mb-2 mr-3 btn-transition btn btn-outline-success">
+                                                    <span style="font-size: 16px">Thêm Nhân Viên
+                                                    </span>
+                                                </button>
+                                            </a>
+                                        </div>
                                         <table class="mb-0 table table-hover" style="text-align: center">
                                             <thead>
                                                 <tr>

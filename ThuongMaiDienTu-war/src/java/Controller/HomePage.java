@@ -49,8 +49,7 @@ public class HomePage extends HttpServlet {
             List<entity.Product> ls=product_s.selectTopByIdCat(list_cat.get(i).getIdcategory(), 3);
             list_pro.addAll(ls);
         }
-        List<entity.Product> list_pro_pop=product_s.selectTop(20);
-        
+        List<entity.Product> list_pro_pop=product_s.selectTop(12);
         request.setAttribute("list_category", list_cat);
         request.setAttribute("list_product", list_pro);
         request.setAttribute("list_product_popular", list_pro_pop);

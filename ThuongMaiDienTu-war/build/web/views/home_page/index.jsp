@@ -253,7 +253,7 @@
                                 <div class="product">
                                     <div class="product_image">
                                         <a href="">
-                                            <img src="resources/home_page/images/product/<%=list_pro.get(i).getProductimage()%>" alt="">
+                                            <img src="resources/home_page/images/product/<%=list_pro_pop.get(i).getProductimage()%>" alt="" width="320px" height="300px">
                                         </a>
                                     </div>
                                     <div class="product_content">
@@ -269,7 +269,7 @@
                                                 <div class="product_price text-right"><%=list_pro_pop.get(i).getPriceoutput()%>vnđ</div>
                                             </div>
                                         </div>
-                                        <a href="CheckLogin?page=check&idproduct=<%=list_pro.get(i).getIdproduct()%>">    
+                                        <a href="CheckLogin?page=check&idproduct=<%=list_pro_pop.get(i).getIdproduct()%>">    
                                             <div class="product_buttons">
                                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
                                                     <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
