@@ -9,6 +9,7 @@ import Connnection.DBConnection;
 import entity.Staff;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -74,5 +75,28 @@ public class Staff_s {
             Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return sta;
+    }
+    public int insert(Staff sta){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int n=0;
+        String sql="insert into tmdt.staff(staffname, gender, datebirth, address, phonenumber, permission, username, password) "
+                + " values(?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement  pre=conn.prepareStatement(sql);
+            pre.setString(1, sta.getStaffname());
+            pre.setString(2, sta.getGender());
+            pre.setDate(3, sta.getDatebirth());
+            pre.setString(4, sta.getAddress());
+            pre.setString(5, sta.getPhonenumber());
+            pre.setString(6, sta.getPermission());
+            pre.setString(7, sta.getUsername());
+            pre.setString(8, sta.getPassword());
+            n=pre.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Staff_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
     }
 }

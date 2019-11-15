@@ -1,13 +1,13 @@
 package entity;
 
 import entity.Invoice;
-import java.util.Date;
+import java.sql.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-11-15T12:36:58")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-11-15T15:07:32")
 @StaticMetamodel(Staff.class)
 public class Staff_ { 
 
