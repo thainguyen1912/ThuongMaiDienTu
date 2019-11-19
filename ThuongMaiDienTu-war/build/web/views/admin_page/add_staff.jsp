@@ -16,26 +16,77 @@
                             <div class="tab-pane tabs-animation fade active show" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
-                                        <form class="" style="width: 100%" action="CategoryControl?page=add" method="post">
+                                        <form class="" style="width: 100%" action="StaffControl?page=add" method="post">
                                             <div>
                                                 <div style="width: 60%; float: left">
                                                     <div class="position-relative row form-group">
                                                         <label for="name" class="col-sm-2 col-form-label">
-                                                            Tên Danh Mục
+                                                            Tên Nhân Viên
                                                         </label>
                                                         <div class="col-sm-10">
                                                             <input value="" name="name" id="name" placeholder="" type="text" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
-                                                        <label for="status" class="col-sm-2 col-form-label">
-                                                            Tình Trạng
+                                                        <label for="gender" class="col-sm-2 col-form-label">
+                                                            Giới Tính
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <select name="status" id="gender" class="form-control">
-                                                                <option value="1" >Đang Kinh Doanh</option>
-                                                                <option value="0" >Tạm Ngừng Kinh Doanh</option>
+                                                            <select name="gender" id="gender" class="form-control">
+                                                                <option value="1" >Nam</option>
+                                                                <option value="0" >Nữ</option>
                                                             </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="position-relative row form-group">
+                                                        <label for="datebirth" class="col-sm-2 col-form-label">
+                                                            Ngày Sinh
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                            <input value="" name="datebirth" id="name" placeholder="" type="date" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="position-relative row form-group">
+                                                        <label for="address" class="col-sm-2 col-form-label">
+                                                            Địa Chỉ
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                            <input value="" name="address" id="name" placeholder="" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="position-relative row form-group">
+                                                        <label for="phonenumber" class="col-sm-2 col-form-label">
+                                                            Số Điện Thoại
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                            <input value="" name="phonenumber" id="name" placeholder="" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="position-relative row form-group">
+                                                        <label for="permission" class="col-sm-2 col-form-label">
+                                                            Quyền
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                            <select name="permission" id="gender" class="form-control">
+                                                                <option value="1" >Admin</option>
+                                                                <option value="0" >Quản Lý</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="position-relative row form-group">
+                                                        <label for="username" class="col-sm-2 col-form-label">
+                                                            Tên Tài Khoản
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                            <input value="" name="username" id="name" placeholder="" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="position-relative row form-group">
+                                                        <label for="password" class="col-sm-2 col-form-label">
+                                                            Mật Khẩu
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                            <input value="" name="password" id="name" placeholder="" type="text" class="form-control">
                                                         </div>
                                                     </div>
 
