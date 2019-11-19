@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_product.jsp</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/EditControl.java</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/AddControl.java</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/edit_product.jsp</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/Category.java</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/add_staff.jsp</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/StaffControl.java</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/Product.java</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/ProductControl.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
