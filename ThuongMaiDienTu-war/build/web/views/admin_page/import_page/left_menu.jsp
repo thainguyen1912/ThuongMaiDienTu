@@ -67,7 +67,12 @@
                         Khách Hàng
                     </a>
                 </li>
-
+                <li>
+                    <a href="Invoice" class="<%=title.equals("list_invoice")?"mm-active":"" %>">
+                        <i class="metismenu-icon pe-7s-album"></i>
+                        Hóa Đơn
+                    </a>
+                </li>
                 <li class="app-sidebar__heading">Ghi Chú</li>
                 <li>
                     <a href="#">
