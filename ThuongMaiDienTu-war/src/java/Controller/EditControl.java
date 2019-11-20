@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import session.Category_s;
 import session.Product_s;
+import session.Staff_s;
 
 /**
  *
@@ -24,6 +25,9 @@ import session.Product_s;
  */
 @WebServlet(name = "EditControl", urlPatterns = {"/EditControl"})
 public class EditControl extends HttpServlet {
+
+    @EJB
+    private Staff_s staff_s;
 
     @EJB
     private Product_s product_s;
@@ -68,6 +72,16 @@ public class EditControl extends HttpServlet {
                 List<entity.Category> list_cat=category_s.getAll();
                 request.setAttribute("list_category", list_cat);
                 rd=request.getRequestDispatcher("views/admin_page/edit_product.jsp");
+                rd.forward(request, response);
+                break;
+            case "staff":
+                request.setAttribute("title", "edit_staff");
+                int id_s=Integer.valueOf(request.getParameter("id"));
+                
+                entity.Staff sta=staff_s.getByID(id_s);
+                
+                request.setAttribute("staff", sta);
+                rd=request.getRequestDispatcher("views/admin_page/edit_staff.jsp");
                 rd.forward(request, response);
                 break;
         }

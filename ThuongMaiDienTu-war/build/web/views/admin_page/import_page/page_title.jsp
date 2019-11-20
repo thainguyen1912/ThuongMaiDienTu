@@ -30,6 +30,9 @@
         case "add_staff":
             title="Thêm Nhân Viên"   ;
             break;
+        case "edit_staff":
+            title="Sửa Thông Tin Nhân Viên";
+            break;
         default:
             title="null";
             break;
