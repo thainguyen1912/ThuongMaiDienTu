@@ -77,4 +77,16 @@ public class Customer_s {
         }
         return cus;
     }
+    public int delete(int id){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int n=0;
+        String sql="delete from tmdt.customer where idcustomer='"+id+"'";
+        try {
+            n=conn.createStatement().executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
 }

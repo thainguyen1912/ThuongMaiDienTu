@@ -31,7 +31,7 @@ public class Staff_s {
         DBConnection db=new DBConnection();
         Connection conn=db.getConnect();
         List<Staff> list_sta=new ArrayList<Staff>();
-        String sql="select * from tmdt.staff";
+        String sql="select * from tmdt.staff where permission='0'";
         try {
             ResultSet rs=conn.createStatement().executeQuery(sql);
             while(rs.next()){
@@ -51,6 +51,30 @@ public class Staff_s {
             Logger.getLogger(Staff_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list_sta;
+    }
+    public Staff getByID(int id){
+        Staff sta=null;
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        String sql="select * from tmdt.staff where idstaff='"+id+"'";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int idStaff=rs.getInt("idstaff");
+                String staffName=rs.getString("staffname");
+                String gender=rs.getString("gender");
+                Date dateBirth=rs.getDate("datebirth");
+                String address=rs.getString("address");
+                String phoneNumber=rs.getString("phonenumber");
+                String permission=rs.getString("permission");
+                String userName=rs.getString("username");
+                String password=rs.getString("password");
+                sta=new Staff(idStaff, staffName, gender, dateBirth, address, phoneNumber, permission, userName, password);
+            }
+        } catch (SQLException ex) { 
+            Logger.getLogger(Staff_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sta;
     }
     public Staff getByUserPass(String user, String pass){
         DBConnection db=new DBConnection();
@@ -96,6 +120,42 @@ public class Staff_s {
             
         } catch (SQLException ex) {
             Logger.getLogger(Staff_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+    public int update(Staff sta){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int n=0;
+        String sql="update tmdt.staff set staffname=?, gender=?, datebirth=?, address=?, phonenumber=?, permission=?, username=?, password=? where idstaff=?";
+        try {
+            PreparedStatement pre=conn.prepareStatement(sql);
+            pre.setString(1, sta.getStaffname());
+            pre.setString(2, sta.getGender());
+            pre.setDate(3, sta.getDatebirth());
+            pre.setString(4, sta.getAddress());
+            pre.setString(5, sta.getPhonenumber());
+            pre.setString(6, sta.getPermission());
+            pre.setString(7, sta.getUsername());
+            pre.setString(8, sta.getPassword());
+            pre.setInt(9, sta.getIdstaff());
+            n=pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Staff_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+    public int delete(int id){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int n=0;
+        String sql="delete from tmdt.staff where idstaff=?";
+        try {
+            PreparedStatement pre=conn.prepareStatement(sql);
+            pre.setInt(1, id);
+            n=pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Category_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
     }

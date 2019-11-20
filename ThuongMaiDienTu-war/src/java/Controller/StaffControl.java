@@ -36,31 +36,64 @@ public class StaffControl extends HttpServlet {
         String page=request.getParameter("page");
         switch(page){
             case "add":
-                List<entity.Staff> list_sta=staff_s.getAll();
-                String staffName=request.getParameter("name");
-                String gender=request.getParameter("gender");
-                Date dateBirth=Date.valueOf(request.getParameter("datebirth"));
-                String address=request.getParameter("address");
-                String phoneNumber=request.getParameter("phonenumber");
-                String permission=request.getParameter("permission");
-                String userName=request.getParameter("username");
-                String passWord=request.getParameter("password");
+                List<entity.Staff> list_sta_a=staff_s.getAll();
+                String staffName_a=request.getParameter("name");
+                String gender_a=request.getParameter("gender");
+                Date dateBirth_a=Date.valueOf(request.getParameter("datebirth"));
+                String address_a=request.getParameter("address");
+                String phoneNumber_a=request.getParameter("phonenumber");
+                String permission_a=request.getParameter("permission");
+                String userName_a=request.getParameter("username");
+                String passWord_a=request.getParameter("password");
                 
-                boolean check=true;
-                for(int i=0;i<list_sta.size();i++){
-                    if(list_sta.get(i).getUsername().equals(userName)){
-                        check=false;
+                boolean check_a=true;
+                for(int i=0;i<list_sta_a.size();i++){
+                    if(list_sta_a.get(i).getUsername().equals(userName_a)){
+                        check_a=false;
                         break;
                     }
                 }
-                if(check==true){
-                    entity.Staff sta=new entity.Staff(staffName, gender, dateBirth, address, phoneNumber, permission, userName, passWord);
-                    staff_s.insert(sta);
+                if(check_a==true){
+                    entity.Staff sta_a=new entity.Staff(staffName_a, gender_a, dateBirth_a, address_a, phoneNumber_a, permission_a, userName_a, passWord_a);
+                    staff_s.insert(sta_a);
                     response.sendRedirect("Staff");
                 }
                 else{
                     response.sendRedirect("AddControl?page=staff");
                 }
+                break;
+            case "edit":
+                List<entity.Staff> list_sta_e=staff_s.getAll();
+                int id=Integer.valueOf(request.getParameter("id"));
+                String staffName_e=request.getParameter("name");
+                String gender_e=request.getParameter("gender");
+                Date dateBirth_e=Date.valueOf(request.getParameter("datebirth"));
+                String address_e=request.getParameter("address");
+                String phoneNumber_e=request.getParameter("phonenumber");
+                String permission_e=request.getParameter("permission");
+                String userName_e=request.getParameter("username");
+                String passWord_e=request.getParameter("password");
+                
+                boolean check_e=true;
+                for(int i=0;i<list_sta_e.size();i++){
+                    if(list_sta_e.get(i).getUsername().equals(userName_e)){
+                        check_e=false;
+                        break;
+                    }
+                }
+                if(check_e==true){
+                    entity.Staff sta_e=new entity.Staff(id, staffName_e, gender_e, dateBirth_e, address_e, phoneNumber_e, permission_e, userName_e, passWord_e);
+                    staff_s.update(sta_e);
+                    response.sendRedirect("Staff");
+                }
+                else{
+                    response.sendRedirect("AddControl?page=staff");
+                }
+                break;
+            case "delete":
+                int id_d=Integer.valueOf(request.getParameter("id"));
+                staff_s.delete(id_d);
+                response.sendRedirect("Staff");
                 break;
         }
     }

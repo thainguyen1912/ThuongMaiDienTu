@@ -34,7 +34,6 @@
                                                     <th>Số Điện Thoại</th>
                                                     <th>Tên Tài Khoản</th>
                                                     <th>Địa Chỉ Nhận</th>
-                                                    <th>Mật Khẩu</th>
                                                     <th style="width: 12%">Tùy Chọn</th>
                                                 </tr>
                                             </thead>
@@ -52,18 +51,9 @@
                                                     <td><%=list_cus.get(i).getPhonenumber()%></td>
                                                     <td><%=list_cus.get(i).getTransport()%></td>
                                                     <td><%=list_cus.get(i).getUsername()%></td>
-                                                    <td><%=list_cus.get(i).getPassword()%></td>
                                                     <td>
-                                                        <div style="float: left">
-                                                            <a href="">
-                                                                <button class="mb-2 mr-3 btn-transition btn btn-outline-warning">
-                                                                    <i class="pe-7s-tools" style="font-size: 1.5rem">
-                                                                    </i>
-                                                                </button>
-                                                            </a>
-                                                        </div>
-                                                        <div style="float: right">
-                                                            <a onclick="return xacNhan()" href="">
+                                                        <div style="">
+                                                            <a onclick="return xacNhan()" href="CustomerControl?page=delete&id=<%=list_cus.get(i).getIdcustomer() %>">
                                                                 <button class="mb-2 mr-3 btn-transition btn btn-outline-danger">
                                                                     <i class="pe-7s-trash" style="font-size: 1.5rem">
                                                                     </i>

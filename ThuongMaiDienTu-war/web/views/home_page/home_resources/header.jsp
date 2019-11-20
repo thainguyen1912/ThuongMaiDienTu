@@ -20,7 +20,7 @@
         <nav class="main_nav">
             <ul class="d-flex flex-row align-items-start justify-content-start">
                 <li class=""><a href="#">Trang Chủ</a></li>
-                <li class=""><a href="#">Laptop</a></li>
+                <li class=""><a href="">Laptop</a></li>
                 <li><a href="#">SmartPhone</a></li>
                 <li><a href="#">TiVi</a></li>
                 <li><a href="#">Máy Ảnh</a></li>
@@ -37,7 +37,7 @@
             <!-- Login -->
             <div class="user"><a href="CheckLogin?page=checkloginadmin"><div><img src="resources/home_page/images/login.svg" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
             <!-- User -->
-            <div class="user"><a href="#"><div><img src="resources/home_page/images/user1.svg" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
+            <div class="user"><a href="CheckLogin?page=checkloginuser"><div><img src="resources/home_page/images/user1.svg" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
             <!-- Cart -->
             <div class="cart"><a href="cart.html"><div><img class="svg" src="resources/home_page/images/cart.svg" alt="https://www.flaticon.com/authors/freepik"></div></a></div>
             <!-- Phone -->
