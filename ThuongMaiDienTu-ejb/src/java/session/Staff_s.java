@@ -159,7 +159,7 @@ public class Staff_s {
             Logger.getLogger(Category_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
-
+    }
     public Staff getStaffByID(int idSta){
         DBConnection db=new DBConnection();
         Connection conn=db.getConnect();

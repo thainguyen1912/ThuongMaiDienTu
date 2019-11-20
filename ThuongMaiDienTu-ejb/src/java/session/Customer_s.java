@@ -89,7 +89,7 @@ public class Customer_s {
             Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
-
+    }
     public Customer getCustomerByID(int idCus){
         DBConnection db=new DBConnection();
         Connection conn=db.getConnect();
