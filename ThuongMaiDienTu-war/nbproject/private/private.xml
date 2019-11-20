@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/login_page/adminlogin.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/category.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/HomePage.java</file>
@@ -15,6 +16,12 @@
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/home_resources/header.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_category.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_customer.jsp</file>
+
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-war/web/WEB-INF/web.xml</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/Category.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/AddControl.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_category.jsp</file>
+
         </group>
     </open-files>
 </project-private>

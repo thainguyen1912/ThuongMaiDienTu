@@ -3,8 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/session/Customer_s.java</file>
-            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/session/Staff_s.java</file>
+
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/session/Product_s.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/Connnection/DBConnection.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/session/Category_s.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/entity/Category.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/session/Staff_s.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/entity/Invoice.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/session/Customer_s.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/entity/Product.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/entity/Invoicedetails.java</file>
+            <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-ejb/src/java/entity/InvoicedetailsPK.java</file>
+
         </group>
     </open-files>
 </project-private>

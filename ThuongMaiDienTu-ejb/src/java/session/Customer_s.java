@@ -77,6 +77,7 @@ public class Customer_s {
         }
         return cus;
     }
+
     public int delete(int id){
         DBConnection db=new DBConnection();
         Connection conn=db.getConnect();
@@ -88,5 +89,31 @@ public class Customer_s {
             Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
+
+    public Customer getCustomerByID(int idCus){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        Customer cus=null;
+        String sql="select * from tmdt.customer where idcustomer='"+idCus+"'";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int idCustomer=rs.getInt("idcustomer");
+                String customerName=rs.getString("customername");
+                String gender=rs.getString("gender");
+                Date dateBirth=rs.getDate("datebirth");
+                String address=rs.getString("address");
+                String phoneNumber=rs.getString("phonenumber");
+                String transport=rs.getString("transport");
+                String userName=rs.getString("username");
+                String passWord=rs.getString("password");
+                
+                cus=new Customer(idCustomer, customerName, gender, dateBirth, address, phoneNumber, transport, userName, passWord);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cus;
+
     }
 }

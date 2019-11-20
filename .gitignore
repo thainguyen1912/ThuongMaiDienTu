@@ -23,6 +23,6 @@ www-test/
 
 #old GWT (1.5) created this dir
 .gwt-tmp/
-/ThuongMaiDienTu-war/build/
+
 /ThuongMaiDienTu-ejb/dist/
 /ThuongMaiDienTu-war/dist/

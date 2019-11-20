@@ -51,6 +51,13 @@ public class Invoice implements Serializable {
     public Invoice() {
     }
 
+    public Invoice(Integer idinvoice, long totalmoney, Customer idcustomer, Staff idstaff) {
+        this.idinvoice = idinvoice;
+        this.totalmoney = totalmoney;
+        this.idcustomer = idcustomer;
+        this.idstaff = idstaff;
+    }
+
     public Invoice(Integer idinvoice) {
         this.idinvoice = idinvoice;
     }

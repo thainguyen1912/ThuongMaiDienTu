@@ -12,6 +12,9 @@
         case "list_staff":
             title="Danh Sách Nhân Viên";
             break;
+        case "list_invoice":
+            title="Danh Sách Hóa Đơn";
+            break;
         case "list_customer":
             title="Danh Sách Người Dùng";
             break;
