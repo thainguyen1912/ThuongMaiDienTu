@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="flex-sb-m w-full p-t-3 p-b-24">
-                            
+
                         </div>
 
                         <div class="container-login100-form-btn m-t-17">
@@ -49,8 +49,19 @@
                                 Đăng Nhập
                             </button>
                         </div>
-
                     </form>
+                    <div class="container-login100-form-btn m-t-17">
+                        <span class="login100-form-title mt-5 mb-2" style="font-size: 18px">
+                            Bạn Chưa Có Tài Khoản ?
+                        </span>
+                        <div class="container-login100-form-btn m-t-17" style="margin-left: 36%">
+                            <a href="views/login_page/user_register.jsp">
+                                <button class="login100-form-btn">
+                                    Đăng Ký
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
