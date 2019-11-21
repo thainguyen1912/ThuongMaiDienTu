@@ -46,12 +46,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Staff.findByPassword", query = "SELECT s FROM Staff s WHERE s.password = :password")})
 public class Staff implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "idstaff")
-    private Integer idstaff;
     @Size(max = 45)
     @Column(name = "staffname")
     private String staffname;
@@ -60,7 +54,7 @@ public class Staff implements Serializable {
     private String gender;
     @Column(name = "datebirth")
     @Temporal(TemporalType.DATE)
-    private Date datebirth;
+    private java.util.Date datebirth;
     @Size(max = 45)
     @Column(name = "address")
     private String address;
@@ -76,6 +70,12 @@ public class Staff implements Serializable {
     @Size(max = 45)
     @Column(name = "password")
     private String password;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "idstaff")
+    private Integer idstaff;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idstaff")
     private List<Invoice> invoiceList;
 
@@ -116,6 +116,35 @@ public class Staff implements Serializable {
     public void setIdstaff(Integer idstaff) {
         this.idstaff = idstaff;
     }
+    @XmlTransient
+    public List<Invoice> getInvoiceList() {
+        return invoiceList;
+    }
+    public void setInvoiceList(List<Invoice> invoiceList) {
+        this.invoiceList = invoiceList;
+    }
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idstaff != null ? idstaff.hashCode() : 0);
+        return hash;
+    }
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Staff)) {
+            return false;
+        }
+        Staff other = (Staff) object;
+        if ((this.idstaff == null && other.idstaff != null) || (this.idstaff != null && !this.idstaff.equals(other.idstaff))) {
+            return false;
+        }
+        return true;
+    }
+    @Override
+    public String toString() {
+        return "entity.Staff[ idstaff=" + idstaff + " ]";
+    }
 
     public String getStaffname() {
         return staffname;
@@ -133,11 +162,11 @@ public class Staff implements Serializable {
         this.gender = gender;
     }
 
-    public Date getDatebirth() {
+    public java.util.Date getDatebirth() {
         return datebirth;
     }
 
-    public void setDatebirth(Date datebirth) {
+    public void setDatebirth(java.util.Date datebirth) {
         this.datebirth = datebirth;
     }
 
@@ -179,40 +208,6 @@ public class Staff implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @XmlTransient
-    public List<Invoice> getInvoiceList() {
-        return invoiceList;
-    }
-
-    public void setInvoiceList(List<Invoice> invoiceList) {
-        this.invoiceList = invoiceList;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idstaff != null ? idstaff.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Staff)) {
-            return false;
-        }
-        Staff other = (Staff) object;
-        if ((this.idstaff == null && other.idstaff != null) || (this.idstaff != null && !this.idstaff.equals(other.idstaff))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.Staff[ idstaff=" + idstaff + " ]";
     }
     
 }

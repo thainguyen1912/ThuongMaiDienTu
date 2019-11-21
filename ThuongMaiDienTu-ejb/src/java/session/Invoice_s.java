@@ -41,8 +41,9 @@ public class Invoice_s {
                 int id=rs.getInt("idinvoice");
                 Staff staff=new Staff_s().getStaffByID(rs.getInt("idstaff"));             
                 Customer customer = new Customer_s().getCustomerByID(rs.getInt("idcustomer"));
-                long total = rs.getLong("totalmoney");             
-                Invoice inv = new Invoice(id, total, customer, staff);
+                long total = rs.getLong("totalmoney");   
+                String status = rs.getString("status");
+                Invoice inv = new Invoice(id, total, status, customer, staff);
                 list_inv.add(inv);
             }
         } catch (SQLException ex) {

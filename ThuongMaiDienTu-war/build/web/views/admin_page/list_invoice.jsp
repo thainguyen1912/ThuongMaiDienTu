@@ -31,7 +31,8 @@
                                                 <tr>
                                                     <th>STT</th>
                                                     <th>Tên Khách Hàng</th>
-                                                    <th>Tổng tiền</th>
+                                                    <th>Trạng Thái</th>
+                                                    <th>Tổng Tiền</th>
                                                     
                                                 </tr>
                                          </thead>
@@ -43,6 +44,7 @@
                                                 <tr>
                                                     <th><%=i + 1%></th>
                                                     <td><%=list_inv.get(i).getIdcustomer().getCustomername() %></td>
+                                                    <td><%=list_inv.get(i).getStatus().equals("0")?"Chưa Thanh Toán":"Đã Thanh Toán"%></td>
                                                     <td><%=list_inv.get(i).getTotalmoney() %></td>
                                                 </tr>
                                                 <%
