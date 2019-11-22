@@ -98,8 +98,30 @@ public class Customer_s {
         Customer cus=null;
         String sql="select * from tmdt.customer where idcustomer='"+idCus+"'";
         try {
-            ResultSet rs=conn.createStatement().executeQuery(sql);
-            while(rs.next()){
+            PreparedStatement pre=conn.prepareStatement(sql);
+            pre.setInt(1, idCus);
+            ResultSet rs=pre.executeQuery();
+            if(rs.next()){
+
+                int idCustomer=rs.getInt("idcustomer");
+                String customerName=rs.getString("customername");
+                String gender=rs.getString("gender");
+                Date dateBirth=rs.getDate("datebirth");
+                String address=rs.getString("address");
+                String phoneNumber=rs.getString("phonenumber");
+                String transport=rs.getString("transport");
+                String userName=rs.getString("username");
+                String passWord=rs.getString("password");
+
+                
+
+                cus=new Customer(idCustomer, customerName, gender, dateBirth, address, phoneNumber, transport, userName, passWord);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cus;
+    }
 
     public Customer selectByUsername(String username){
         DBConnection db=new DBConnection();

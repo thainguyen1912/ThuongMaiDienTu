@@ -20,17 +20,10 @@
         <nav class="main_nav">
             <ul class="d-flex flex-row align-items-start justify-content-start">
                 <li class=""><a href="#">Trang Chủ</a></li>
-<<<<<<< Updated upstream
-                <li class=""><a href="">Laptop</a></li>
-                <li><a href="#">SmartPhone</a></li>
-                <li><a href="#">TiVi</a></li>
-                <li><a href="#">Máy Ảnh</a></li>
-=======
                 <li class=""><a href="TypeProductController?type_product=laptop">Laptop</a></li>
                 <li><a href="TypeProductController?type_product=smartphone">SmartPhone</a></li>
                 <li><a href="TypeProductController?type_product=tivi">TiVi</a></li>
                 <li><a href="TypeProductController?type_product=mayanh">Máy Ảnh</a></li>
->>>>>>> Stashed changes
             </ul>
         </nav>
         <div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
