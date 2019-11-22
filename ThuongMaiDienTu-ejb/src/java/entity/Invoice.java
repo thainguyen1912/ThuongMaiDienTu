@@ -17,11 +17,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author thain
+ * @author admins
  */
 @Entity
 @Table(name = "invoice")
@@ -29,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Invoice.findAll", query = "SELECT i FROM Invoice i")
     , @NamedQuery(name = "Invoice.findByIdinvoice", query = "SELECT i FROM Invoice i WHERE i.idinvoice = :idinvoice")
-    , @NamedQuery(name = "Invoice.findByTotalmoney", query = "SELECT i FROM Invoice i WHERE i.totalmoney = :totalmoney")})
+    , @NamedQuery(name = "Invoice.findByTotalmoney", query = "SELECT i FROM Invoice i WHERE i.totalmoney = :totalmoney")
+    , @NamedQuery(name = "Invoice.findByStatus", query = "SELECT i FROM Invoice i WHERE i.status = :status")})
 public class Invoice implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,9 +40,11 @@ public class Invoice implements Serializable {
     @Basic(optional = false)
     @Column(name = "idinvoice")
     private Integer idinvoice;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "totalmoney")
-    private long totalmoney;
+    private Long totalmoney;
+    @Size(max = 1)
+    @Column(name = "status")
+    private String status;
     @JoinColumn(name = "idcustomer", referencedColumnName = "idcustomer")
     @ManyToOne(optional = false)
     private Customer idcustomer;
@@ -51,12 +55,20 @@ public class Invoice implements Serializable {
     public Invoice() {
     }
 
-    public Invoice(Integer idinvoice, long totalmoney, Customer idcustomer, Staff idstaff) {
+    public Invoice(Integer idinvoice, Long totalmoney, String status, Customer idcustomer, Staff idstaff) {
         this.idinvoice = idinvoice;
         this.totalmoney = totalmoney;
+        this.status = status;
         this.idcustomer = idcustomer;
         this.idstaff = idstaff;
     }
+
+    public Invoice(Integer idinvoice, String status) {
+        this.idinvoice = idinvoice;
+        this.status = status;
+    }
+
+    
 
     public Invoice(Integer idinvoice) {
         this.idinvoice = idinvoice;
@@ -70,12 +82,20 @@ public class Invoice implements Serializable {
         this.idinvoice = idinvoice;
     }
 
-    public long getTotalmoney() {
+    public Long getTotalmoney() {
         return totalmoney;
     }
 
-    public void setTotalmoney(long totalmoney) {
+    public void setTotalmoney(Long totalmoney) {
         this.totalmoney = totalmoney;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Customer getIdcustomer() {

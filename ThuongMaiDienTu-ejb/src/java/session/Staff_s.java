@@ -111,7 +111,7 @@ public class Staff_s {
             PreparedStatement  pre=conn.prepareStatement(sql);
             pre.setString(1, sta.getStaffname());
             pre.setString(2, sta.getGender());
-            pre.setDate(3, sta.getDatebirth());
+            pre.setDate(3, (Date) sta.getDatebirth());
             pre.setString(4, sta.getAddress());
             pre.setString(5, sta.getPhonenumber());
             pre.setString(6, sta.getPermission());
@@ -133,7 +133,7 @@ public class Staff_s {
             PreparedStatement pre=conn.prepareStatement(sql);
             pre.setString(1, sta.getStaffname());
             pre.setString(2, sta.getGender());
-            pre.setDate(3, sta.getDatebirth());
+            pre.setDate(3, (Date) sta.getDatebirth());
             pre.setString(4, sta.getAddress());
             pre.setString(5, sta.getPhonenumber());
             pre.setString(6, sta.getPermission());

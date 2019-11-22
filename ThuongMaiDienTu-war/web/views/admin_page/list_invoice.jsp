@@ -31,8 +31,9 @@
                                                 <tr>
                                                     <th>STT</th>
                                                     <th>Tên Khách Hàng</th>
-                                                    <th>Tổng tiền</th>
-                                                    
+                                                    <th>Trạng Thái</th>
+                                                    <th>Tổng Tiền</th>
+                                                    <th>Thao Tác</th>
                                                 </tr>
                                          </thead>
                                             <tbody>
@@ -43,7 +44,18 @@
                                                 <tr>
                                                     <th><%=i + 1%></th>
                                                     <td><%=list_inv.get(i).getIdcustomer().getCustomername() %></td>
+                                                    <td><%=list_inv.get(i).getStatus().equals("0")?"Chưa Thanh Toán":"Đã Thanh Toán"%></td>
                                                     <td><%=list_inv.get(i).getTotalmoney() %></td>
+                                                    <td>
+                                                        
+                                                            <a href="InvoiceControl?page=process&id=<%=list_inv.get(i).getIdinvoice() %>" title="Thanh Toán">
+                                                                <button class="mb-2 mr-3 btn-transition btn btn-outline-warning">
+                                                                    <i class="pe-7s-tools" style="font-size: 1.5rem">
+                                                                    </i>
+                                                                </button>
+                                                            </a>
+                                                        
+                                                    </td>
                                                 </tr>
                                                 <%
                                                     }

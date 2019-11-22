@@ -26,3 +26,6 @@ www-test/
 
 /ThuongMaiDienTu-ejb/dist/
 /ThuongMaiDienTu-war/dist/
+/ThuongMaiDienTu-war/build/
+/build/
+/dist/
