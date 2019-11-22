@@ -44,17 +44,39 @@
                                                 <tr>
                                                     <th><%=i + 1%></th>
                                                     <td><%=list_inv.get(i).getIdcustomer().getCustomername() %></td>
-                                                    <td><%=list_inv.get(i).getStatus().equals("0")?"Chưa Thanh Toán":"Đã Thanh Toán"%></td>
-                                                    <td><%=list_inv.get(i).getTotalmoney() %></td>
-                                                    <td>
+                                                        <%
+                                                        if(list_inv.get(i).getStatus().equals("0")){
                                                         
+                                                        %>
+                                                        <td style="color:red">Chưa Thanh Toán</td>
+                                                        <%
+                                                        }
+                                                        %>
+                                                        <%
+                                                        if(list_inv.get(i).getStatus().equals("1")){
+                                                        
+                                                        %>
+                                                        <td style="color:green">Đã Thanh Toán</td>
+                                                        <%
+                                                        }
+                                                        %>
+                                                    
+                                                    <td><%=list_inv.get(i).getTotalmoney() %></td>
+                                                    
+                                                    <td>
+                                                        <%
+                                                        if(list_inv.get(i).getStatus().equals("0")){
+                                                        
+                                                        %>
                                                             <a href="InvoiceControl?page=process&id=<%=list_inv.get(i).getIdinvoice() %>" title="Thanh Toán">
                                                                 <button class="mb-2 mr-3 btn-transition btn btn-outline-warning">
                                                                     <i class="pe-7s-tools" style="font-size: 1.5rem">
                                                                     </i>
                                                                 </button>
                                                             </a>
-                                                        
+                                                        <%
+                                                        }
+                                                        %>
                                                     </td>
                                                 </tr>
                                                 <%
