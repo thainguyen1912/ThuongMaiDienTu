@@ -104,6 +104,109 @@ public class Product_s {
         }
         return list_pro;
     }
+    public List<Product> getListLapTop(){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        List<Product> list_pro=new ArrayList<Product>();
+        String sql="select * from tmdt.product where idcategory= 3 ";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int idProduct=rs.getInt("idproduct");
+                Category  category=new Category_s().selectCategoryByID(rs.getInt("idcategory"));
+                String productName=rs.getString("productname");
+                int amountNow=rs.getInt("amountnow");
+                int amountPaid=rs.getInt("amountpaid");
+                long priceInput=rs.getLong("priceinput");
+                long priceoutput=rs.getLong("priceoutput");
+                String productImage=rs.getString("productimage");
+                String moreInfo=rs.getString("moreinfo");
+                Product pro=new Product(idProduct, productName, amountNow, amountPaid, priceInput, priceoutput, productImage, moreInfo, category);
+                list_pro.add(pro);
+            }
+        } catch (SQLException ex) { 
+            Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list_pro;
+    }
+    
+    public List<Product> getListSmartPhone(){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        List<Product> list_pro=new ArrayList<Product>();
+        String sql="select * from tmdt.product where idcategory= 1 ";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int idProduct=rs.getInt("idproduct");
+                Category  category=new Category_s().selectCategoryByID(rs.getInt("idcategory"));
+                String productName=rs.getString("productname");
+                int amountNow=rs.getInt("amountnow");
+                int amountPaid=rs.getInt("amountpaid");
+                long priceInput=rs.getLong("priceinput");
+                long priceoutput=rs.getLong("priceoutput");
+                String productImage=rs.getString("productimage");
+                String moreInfo=rs.getString("moreinfo");
+                Product pro=new Product(idProduct, productName, amountNow, amountPaid, priceInput, priceoutput, productImage, moreInfo, category);
+                list_pro.add(pro);
+            }
+        } catch (SQLException ex) { 
+            Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list_pro;
+    }
+    
+    public List<Product> getListTivi(){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        List<Product> list_pro=new ArrayList<Product>();
+        String sql="select * from tmdt.product where idcategory= 2 ";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int idProduct=rs.getInt("idproduct");
+                Category  category=new Category_s().selectCategoryByID(rs.getInt("idcategory"));
+                String productName=rs.getString("productname");
+                int amountNow=rs.getInt("amountnow");
+                int amountPaid=rs.getInt("amountpaid");
+                long priceInput=rs.getLong("priceinput");
+                long priceoutput=rs.getLong("priceoutput");
+                String productImage=rs.getString("productimage");
+                String moreInfo=rs.getString("moreinfo");
+                Product pro=new Product(idProduct, productName, amountNow, amountPaid, priceInput, priceoutput, productImage, moreInfo, category);
+                list_pro.add(pro);
+            }
+        } catch (SQLException ex) { 
+            Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list_pro;
+    }
+    
+    public List<Product> getListMayAnh(){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        List<Product> list_pro=new ArrayList<Product>();
+        String sql="select * from tmdt.product where idcategory= 4 ";
+        try {
+            ResultSet rs=conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                int idProduct=rs.getInt("idproduct");
+                Category  category=new Category_s().selectCategoryByID(rs.getInt("idcategory"));
+                String productName=rs.getString("productname");
+                int amountNow=rs.getInt("amountnow");
+                int amountPaid=rs.getInt("amountpaid");
+                long priceInput=rs.getLong("priceinput");
+                long priceoutput=rs.getLong("priceoutput");
+                String productImage=rs.getString("productimage");
+                String moreInfo=rs.getString("moreinfo");
+                Product pro=new Product(idProduct, productName, amountNow, amountPaid, priceInput, priceoutput, productImage, moreInfo, category);
+                list_pro.add(pro);
+            }
+        } catch (SQLException ex) { 
+            Logger.getLogger(Product_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list_pro;
+    }
     public Product getById(int id){
         DBConnection db=new DBConnection();
         Connection conn=db.getConnect();

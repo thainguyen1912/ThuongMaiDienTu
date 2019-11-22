@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
 
 
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/login_page/adminlogin.jsp</file>
@@ -37,6 +38,21 @@
             <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_category.jsp</file>
             <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/edit_category.jsp</file>
             <file>file:/D:/BTL/Hướng%20cấu%20phần/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/InvoiceControl.java</file>
+=======
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/Product.java</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/ProductControl.java</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/error_page/404-page.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/laptop_page.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/product.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/import_page/import.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_avatar.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/mayanh_page.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/index.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_category.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/TypeProductController.java</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/detail_page.jsp</file>
+            <file>file:/D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/tivi_page.jsp</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

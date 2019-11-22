@@ -29,7 +29,7 @@ import session.Product_s;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB 
         maxFileSize = 1024 * 1024 * 50, // 50 MB
         maxRequestSize = 1024 * 1024 * 100, // 100 MB
-        location = "D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/resources/home_page/images/product/")
+        location = "D:/Java/ThuongMaiDienTu/ThuongMaiDienTu-war/web/resources/home_page/images/product")
 public class ProductControl extends HttpServlet {
 
     @EJB
@@ -111,6 +111,37 @@ public class ProductControl extends HttpServlet {
                 product_s.delete(id_d);
                 response.sendRedirect("Product");
                 break;
+            case "detail":
+                int idProduct_d=Integer.valueOf(request.getParameter("idproduct"));
+                String productName_d = request.getParameter("productname");
+                int idCategory_d = Integer.valueOf(request.getParameter("idcategory"));
+                entity.Category cat_d = category_s.selectCategoryByID(idCategory_d);
+                int amountNow_d = Integer.valueOf(request.getParameter("amountnow"));
+                int amountPaid_d = Integer.valueOf(request.getParameter("amountpaid"));
+                long priceInput_d = Long.valueOf(request.getParameter("priceinput"));
+                long priceOutput_d = Long.valueOf(request.getParameter("priceoutput"));
+                String moreInfo_d = request.getParameter("moreinfo");
+
+                String fileName_d = "";
+                for (Part part : request.getParts()) {
+                    if (part.getName().equals("image")) {
+                        fileName_e = extractFileName(part);
+                        entity.Product pro = new entity.Product(idProduct_d, productName_d, amountNow_d, amountPaid_d, priceInput_d, priceOutput_d, fileName_d, moreInfo_d, cat_d);
+                        product_s.update(pro);
+
+                        if (fileName_e != null && fileName_e.length() > 0) {
+                            part.write(fileName_e);
+                        }
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(ProductControl.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        response.sendRedirect("Product");
+                    }
+                }
+                break;
+            
         }
     }
 

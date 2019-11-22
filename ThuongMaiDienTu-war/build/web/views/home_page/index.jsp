@@ -9,6 +9,7 @@
     if (session.getAttribute("adminSess") != null) {
         session.removeAttribute("adminSess");
     }
+    Product pro=(Product)request.getAttribute("product");
 %>
 
 <!DOCTYPE html>
@@ -66,7 +67,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="product_image"><a href=""><img src="resources/home_page/images/product/<%=list_pro.get(itemPro).getProductimage()%>" alt=""></a></div>
+                                                                    <div class="product_image"><a href="EditControl?page=product&id=<%=list_pro.get(i).getIdproduct() %>"><img src="resources/home_page/images/product/<%=list_pro.get(itemPro).getProductimage()%>" alt=""></a></div>
 
                                                                     <div class="product_content">
                                                                         <div class="product_info d-flex flex-row align-items-start justify-content-start">
@@ -127,7 +128,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <a href="CheckLogin?page=checkloginuser&idproduct=<%=list_pro.get(itemPro).getIdproduct()%>">
+                                                                        <a href="">
                                                                             <div class="product_buttons">
                                                                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
 
@@ -252,7 +253,7 @@
                             <div class="col-xl-4 col-md-6">
                                 <div class="product">
                                     <div class="product_image">
-                                        <a href="">
+                                        <a href="Product">
                                             <img src="resources/home_page/images/product/<%=list_pro_pop.get(i).getProductimage()%>" alt="" width="320px" height="300px">
                                         </a>
                                     </div>

@@ -23,9 +23,14 @@ www-test/
 
 #old GWT (1.5) created this dir
 .gwt-tmp/
+<<<<<<< Updated upstream
 
 /ThuongMaiDienTu-ejb/dist/
 /ThuongMaiDienTu-war/dist/
 /ThuongMaiDienTu-war/build/
 /build/
 /dist/
+=======
+/ThuongMaiDienTu-ejb/dist/
+/ThuongMaiDienTu-war/dist/
+>>>>>>> Stashed changes
