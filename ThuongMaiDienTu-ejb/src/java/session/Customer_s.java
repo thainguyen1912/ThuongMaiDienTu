@@ -102,7 +102,6 @@ public class Customer_s {
             pre.setInt(1, idCus);
             ResultSet rs=pre.executeQuery();
             if(rs.next()){
-
                 int idCustomer=rs.getInt("idcustomer");
                 String customerName=rs.getString("customername");
                 String gender=rs.getString("gender");
@@ -112,8 +111,6 @@ public class Customer_s {
                 String transport=rs.getString("transport");
                 String userName=rs.getString("username");
                 String passWord=rs.getString("password");
-
-                
 
                 cus=new Customer(idCustomer, customerName, gender, dateBirth, address, phoneNumber, transport, userName, passWord);
             }

@@ -4,11 +4,9 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-<<<<<<< Updated upstream
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-11-22T17:09:27")
-=======
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-11-22T17:27:32")
->>>>>>> Stashed changes
+
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-11-22T16:52:47")
+
 @StaticMetamodel(InvoicedetailsPK.class)
 public class InvoicedetailsPK_ { 
 
