@@ -8,6 +8,7 @@ package session;
 import Connnection.DBConnection;
 import entity.Customer;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -90,6 +91,7 @@ public class Customer_s {
         }
         return n;
     }
+
     public Customer getCustomerByID(int idCus){
         DBConnection db=new DBConnection();
         Connection conn=db.getConnect();
@@ -98,6 +100,18 @@ public class Customer_s {
         try {
             ResultSet rs=conn.createStatement().executeQuery(sql);
             while(rs.next()){
+
+    public Customer selectByUsername(String username){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        Customer cus=null;
+        String sql="select * from tmdt.customer where username=?";
+        try {
+            PreparedStatement pre=conn.prepareStatement(sql);
+            pre.setString(1, username);
+            ResultSet rs=pre.executeQuery();
+            if(rs.next()){
+
                 int idCustomer=rs.getInt("idcustomer");
                 String customerName=rs.getString("customername");
                 String gender=rs.getString("gender");
@@ -107,13 +121,39 @@ public class Customer_s {
                 String transport=rs.getString("transport");
                 String userName=rs.getString("username");
                 String passWord=rs.getString("password");
+
                 
+
                 cus=new Customer(idCustomer, customerName, gender, dateBirth, address, phoneNumber, transport, userName, passWord);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cus;
+
+    }
+    public int insert(Customer cus){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        int n=0;
+        String sql="insert into tmdt.customer(customername, gender, datebirth, address, phonenumber, transport, username, password)"
+                + " values(?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement pre=conn.prepareStatement(sql);
+            pre.setString(1, cus.getCustomername());
+            pre.setString(2, cus.getGender());
+            pre.setDate(3, (java.sql.Date) cus.getDatebirth());
+            pre.setString(4, cus.getAddress());
+            pre.setString(5, cus.getPhonenumber());
+            pre.setString(6, cus.getTransport());
+            pre.setString(7, cus.getUsername());
+            pre.setString(8, cus.getPassword());
+            n=pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+        
 
     }
 }

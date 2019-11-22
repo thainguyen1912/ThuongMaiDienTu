@@ -5,6 +5,7 @@
         <group>
 
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/login_page/adminlogin.jsp</file>
+
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/category.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/HomePage.java</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/login_page/userlogin.jsp</file>
@@ -13,6 +14,8 @@
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/login_page/user_register.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/CustomerControl.java</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/home_resources/menuhide.jsp</file>
+            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/src/java/Controller/LoginPage.java</file>
+            <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/login_page/adminlogin.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/home_page/home_resources/header.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_category.jsp</file>
             <file>file:/D:/Stored/netbean_workspace/ThuongMaiDienTu/ThuongMaiDienTu-war/web/views/admin_page/list_customer.jsp</file>
