@@ -30,7 +30,11 @@ www-test/
 /ThuongMaiDienTu-war/build/
 /build/
 /dist/
+<<<<<<< Updated upstream
 =======
 /ThuongMaiDienTu-ejb/dist/
 /ThuongMaiDienTu-war/dist/
+>>>>>>> Stashed changes
+=======
+/ThuongMaiDienTu-ejb/build/
 >>>>>>> Stashed changes
