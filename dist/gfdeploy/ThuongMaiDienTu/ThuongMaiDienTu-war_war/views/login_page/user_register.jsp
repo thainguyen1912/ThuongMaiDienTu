@@ -22,13 +22,41 @@
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100 p-t-50 p-b-90">
-                    <form class="login100-form validate-form flex-sb flex-w" action="CheckLogin?page=checklogininfouser" method="post">
-                        <!--cart=false : khong phai truong hop chua login da chon san pham-->
+                        <%=request.getAttribute("register_error")==null?"":request.getAttribute("register_error") %>
+                    <form class="login100-form validate-form flex-sb flex-w" action="LoginPage?page=register_process" method="post">
                         <span class="login100-form-title p-b-51">
-                            Khách Hàng
+                            Điền Thông Tin
                         </span>
 
 
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "required">
+                            <input class="input100" type="text" name="customername" placeholder="họ tên">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "required">
+                            <select name="gender" class="input100">
+                                <option value="1">Nam</option>
+                                <option value="0">Nữ</option>
+                            </select>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "required">
+                            <input class="input100" type="date" name="datebirth" placeholder="ngày sinh">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "required">
+                            <input class="input100" type="text" name="address" placeholder="thành phố">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "required">
+                            <input class="input100" type="text" name="phonenumber" placeholder="số điện thoại">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-16" data-validate = "required">
+                            <input class="input100" type="text" name="transport" placeholder="địa chỉ nhận hàng">
+                            <span class="focus-input100"></span>
+                        </div>
+                        
                         <div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
                             <input class="input100" type="text" name="username" placeholder="Username">
                             <span class="focus-input100"></span>
@@ -36,7 +64,7 @@
 
 
                         <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-                            <input class="input100" type="password" name="pass" placeholder="Password">
+                            <input class="input100" type="password" name="password" placeholder="Password">
                             <span class="focus-input100"></span>
                         </div>
 
@@ -46,20 +74,18 @@
 
                         <div class="container-login100-form-btn m-t-17">
                             <button class="login100-form-btn">
-                                Đăng Nhập
+                                Đăng Ký
                             </button>
                         </div>
                         
-                        <div class="container-login100-form-btn m-t-17">
-                            <span class="login100-form-title mt-5 mb-2" style="font-size: 18px">
-                                Bạn Chưa Có Tài Khoản ?
-                            </span>
-                            <a href=""><button class="login100-form-btn">
-                                Đăng Ký
-                            </a></button>
-                        </div>
-
                     </form>
+                    <div class="container-login100-form-btn m-t-17" style="margin-left: 36%">
+                            <a href="LoginPage?page=userlogin">
+                                <button class="login100-form-btn">
+                                    Quay Lại
+                                </button>
+                            </a>
+                        </div>
                 </div>
             </div>
         </div>

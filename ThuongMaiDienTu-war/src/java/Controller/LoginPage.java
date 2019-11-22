@@ -7,12 +7,15 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import session.Customer_s;
 
 /**
  *
@@ -20,6 +23,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "LoginPage", urlPatterns = {"/LoginPage"})
 public class LoginPage extends HttpServlet {
+
+    @EJB
+    private Customer_s customer_s;
 
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -38,6 +44,33 @@ public class LoginPage extends HttpServlet {
                 rd=request.getRequestDispatcher("views/login_page/adminlogin.jsp");
                 rd.forward(request, response);
                 break;
+            case "register_page":
+                rd=request.getRequestDispatcher("views/login_page/user_register.jsp");
+                rd.forward(request, response);
+                break;
+            case "register_process":
+                String customerName=request.getParameter("customername");
+                String gender=request.getParameter("gender");
+                Date dateBirth=Date.valueOf(request.getParameter("datebirth"));
+                String address=request.getParameter("address");
+                String phoneNumber=request.getParameter("phonenumber");
+                String transport=request.getParameter("transport");
+                String userName=request.getParameter("username");
+                String passWord=request.getParameter("password");
+                entity.Customer cus=new entity.Customer(customerName, gender, dateBirth, address, phoneNumber, transport, userName, passWord);
+                if(customer_s.selectByUsername(userName)==null){
+                    customer_s.insert(cus);
+                    request.setAttribute("register_success", "Tạo tài khoản thành công");
+                    rd=request.getRequestDispatcher("views/login_page/userlogin.jsp");
+                    rd.forward(request, response);
+                    break;
+                }
+                else{
+                    request.setAttribute("register_error", "Tài khoản này đã tồn tại");
+                    rd=request.getRequestDispatcher("views/login_page/user_register.jsp");
+                    rd.forward(request, response);
+                    break;
+                }
         }
         
         

@@ -22,6 +22,9 @@
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100 p-t-50 p-b-90">
+                    
+                    <%=request.getAttribute("register_success")==null?"":request.getAttribute("register_success") %>
+                    
                     <form class="login100-form validate-form flex-sb flex-w" action="CheckLogin?page=checklogininfouser" method="post">
                         <!--cart=false : khong phai truong hop chua login da chon san pham-->
                         <span class="login100-form-title p-b-51">
@@ -55,7 +58,7 @@
                             Bạn Chưa Có Tài Khoản ?
                         </span>
                         <div class="container-login100-form-btn m-t-17" style="margin-left: 36%">
-                            <a href="views/login_page/user_register.jsp">
+                            <a href="LoginPage?page=register_page">
                                 <button class="login100-form-btn">
                                     Đăng Ký
                                 </button>
