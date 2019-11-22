@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -27,6 +28,12 @@ import javax.ejb.LocalBean;
 @Stateless
 @LocalBean
 public class Invoice_s {
+
+    @EJB
+    private Customer_s customer_s;
+
+    @EJB
+    private Staff_s staff_s;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
@@ -47,8 +54,46 @@ public class Invoice_s {
                 list_inv.add(inv);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Category_s.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Invoice_s.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list_inv;
+    }
+    public int updateStatus(Invoice inv, String sta){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        String sql="update tmdt.invoice set status=? where idinvoice=?";
+        PreparedStatement pre;
+        try {
+            pre = conn.prepareStatement(sql);
+            
+            pre.setString(1, sta);
+            pre.setInt(2,inv.getIdinvoice());
+            return pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Invoice_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+    public Invoice selectById(int id){
+        DBConnection db=new DBConnection();
+        Connection conn=db.getConnect();
+        Invoice inv=null;
+        String sql="select * from tmdt.invoice where idinvoice=?";
+        try {
+            PreparedStatement pre=conn.prepareStatement(sql);
+            pre.setInt(1, id);
+            ResultSet rs=pre.executeQuery();
+            if(rs.next()){
+                int idInvoice=rs.getInt("idinvoice");
+                int idStaff=rs.getInt("idstaff");
+                int idCustomer=rs.getInt("idcustomer");
+                long totalMoney=rs.getLong("totalmoney");
+                String status=rs.getString("status");
+                inv=new Invoice(idInvoice, totalMoney, status, customer_s.getCustomerByID(idCustomer), staff_s.getStaffByID(idStaff));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Invoice_s.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return inv;
     }
 }

@@ -63,6 +63,13 @@ public class Invoice implements Serializable {
         this.idstaff = idstaff;
     }
 
+    public Invoice(Integer idinvoice, String status) {
+        this.idinvoice = idinvoice;
+        this.status = status;
+    }
+
+    
+
     public Invoice(Integer idinvoice) {
         this.idinvoice = idinvoice;
     }
